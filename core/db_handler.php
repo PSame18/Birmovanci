@@ -5,7 +5,7 @@ class DBHandler {
     private $servername = SERVERNAME;
     private $username = USERNAME;
     private $password = PASSWORD;
-    private $db_name = EVENTS_DB;
+    private $db_name = BIRMOVANCI;
     private $db;
 
     // single instance of self shared among all instances
@@ -55,7 +55,6 @@ class LoggedPDO extends PDO{
 
     public function run($sql, $args = []){
         if(!$args){
-            $this->sendLogMessage($sql, $args);
             return $this->query($sql);
         }
         else{
@@ -66,20 +65,8 @@ class LoggedPDO extends PDO{
                 $pos++;
             }
             $stmt->execute();
-            $this->sendLogMessage($sql, $args);
             return $stmt;
         }
-    }
-
-    public function sendLogMessage($sql, $args){
-
-        $data = print_r($args, true);
-
-        $dataArray = $sql . ' with values: ' . $data;
-        $statement = print_r($dataArray, true);
-
-        trigger_error("MYSQL: $statement", E_USER_NOTICE);
-
     }
 
 }

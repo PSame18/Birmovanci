@@ -4,7 +4,7 @@ include("core/events.php");
 include("core/users.php");
 
 if(!isset($_SESSION["userId"])){
-    $_SESSION["userId"] = $_GET["user"];
+    $_SESSION["userId"] = $_GET["u"];
 }
 
 $users = Users::getInstance();
@@ -15,7 +15,6 @@ $user = getUserfromURL($users, $_SESSION["userId"]);
 
 // variables whered data from session variables will be stored
 $userName = $user[0];
-$userEmail = $user[1];
 
 // control if session variables were set
 if(isset($_SESSION["userName"])){
@@ -24,20 +23,14 @@ if(isset($_SESSION["userName"])){
 else{
     $_SESSION["userName"] = $userName;
 }
-if(isset($_SESSION["userEmail"])){
-    $userEmail = $_SESSION["userEmail"];
-}
-else{
-    $_SESSION["userEmail"] = $userEmail;
-}
 
 // new instance of users used to show subscribed users and get userId
 $userId = $users->getUserId();
 $allUsers = $users->getAllUsers();
 
 // new instance of events
-$subscribedEvents = $events->getSubscribedEvents($userId[0]);   // to print subscribed events of logged user
-$eventsRows = $events->getEvents();                             // to print offer of all events
+//$subscribedEvents = $events->getSubscribedEvents($userId[0]);   // to print subscribed events of logged user
+//$eventsRows = $events->getEvents();                             // to print offer of all events
 // eventRows -> event_id, name, date_time, place, description, participants_max_num
 ?>
 

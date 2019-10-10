@@ -122,3 +122,19 @@ input[type=submit] {
     margin-left: 15px;
     width: 100%;
 }
+
+/*
+ADMIN PAGE
+ */
+
+.right-free{
+
+    margin-right: 80px;
+    
+}
+
+#udalosti{
+
+    background-color: blue;
+
+}

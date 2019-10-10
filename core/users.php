@@ -18,18 +18,16 @@ class Users extends DBHandler{
         try{
 
             // send error log to DB to inform about manipulating with DB + all data
-            $query = "SELECT user_id, name, email FROM users";
+            $query = "SELECT user_id, user_name FROM users";
             $values = array();
 
             // get data in an indexed array
             // select all data from the events table
-            $this->setDB_name(EVENTS_DB);
+            $this->setDB_name(BIRMOVANCI);
             $stm = $this->connect()->run($query);
 
             // pass the PDO:FETCH_NUM style to the fetchAll() method
             $rows = $stm->fetchAll(PDO::FETCH_NUM);
-
-            // $this->sendLogMessage($query, $values);
 
             return $rows;
 
@@ -45,10 +43,10 @@ class Users extends DBHandler{
         try{
 
             // send error log to DB to inform about manipulating with DB + all data
-            $query = "SELECT u.name, u.user_id FROM `users` u JOIN `subscription` s WHERE u.user_id = s.user_id AND s.event_id = ?";
+            $query = "SELECT u.user_name, u.user_id FROM `users` u JOIN `subscription` s WHERE u.user_id = s.user_id AND s.event_id = ?";
             $values = array($event_id);
 
-            $this->setDB_name(EVENTS_DB);
+            $this->setDB_name(BIRMOVANCI);
             $stm = $this->connect()->run($query, $values);
             // pass the PDO:FETCH_NUM style to the fetchAll() method
             $rows = $stm->fetchAll(PDO::FETCH_NUM);
@@ -67,10 +65,10 @@ class Users extends DBHandler{
         try{
 
             // send error log to DB to inform about manipulating with DB + all data
-            $query = "SELECT u.user_id FROM `users` u WHERE u.email = ?";
-            $values = array($_SESSION["userEmail"]);
+            $query = "SELECT u.user_id FROM `users` u WHERE u.user_name = ?";
+            $values = array($_SESSION["userName"]);
 
-            $this->setDB_name(EVENTS_DB);
+            $this->setDB_name(BIRMOVANCI);
             $stm = $this->connect()->run($query, $values);
             // pass the PDO:FETCH_NUM style to the fetchAll() method
             $userId = $stm->fetch(PDO::FETCH_NUM);
@@ -92,7 +90,7 @@ class Users extends DBHandler{
             $query = "SELECT u.role_id FROM `users` u WHERE u.email = ?";
             $values = array($_SESSION["userEmail"]);
 
-            $this->setDB_name(EVENTS_DB);
+            $this->setDB_name(BIRMOVANCI);
             $stm = $this->connect()->run($query, $values);
             // pass the PDO:FETCH_NUM style to the fetchAll() method
             $user_role_id = $stm->fetch(PDO::FETCH_NUM);
@@ -111,10 +109,10 @@ class Users extends DBHandler{
 
         try{
 
-            $query = "SELECT u.name, u.email FROM `users` u WHERE u.user_id = ?";
+            $query = "SELECT u.user_name FROM `users` u WHERE u.user_id = ?";
             $values = array($user_id);
 
-            $this->setDB_name(EVENTS_DB);
+            $this->setDB_name(BIRMOVANCI);
             $stm = $this->connect()->run($query, $values);
             // pass the PDO:FETCH_NUM style to the fetchAll() method
             $user = $stm->fetch(PDO::FETCH_NUM);
