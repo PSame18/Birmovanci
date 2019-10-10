@@ -20,10 +20,6 @@ class DBHandler {
         return self::$instance;
     }
 
-    public function setDB_name($dbName){
-        $this->db_name = $dbName;
-    }
-
     public function connect(){
 
         try {
@@ -41,7 +37,7 @@ class DBHandler {
             }
         catch(PDOException $e)
         {
-            trigger_error($e, E_USER_ERROR);
+            error_log($e);
         }
 
     }
@@ -64,8 +60,12 @@ class LoggedPDO extends PDO{
                 $stmt->bindValue($pos, $arg);
                 $pos++;
             }
-            $stmt->execute();
-            return $stmt;
+            if($stmt->execute()){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 

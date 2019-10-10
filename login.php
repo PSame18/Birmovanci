@@ -3,6 +3,7 @@
 // variable which is set accroding to success of login
 $loginSuccess = true;
 
+// time used to push browser to update website every time, time has changed
 $time = time();
 
 // session variable which is set in login_handler.php

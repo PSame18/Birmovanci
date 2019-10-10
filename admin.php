@@ -4,9 +4,11 @@ include_once("core/init.inc.php");
 if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
 	header("Location: login.php");
 }
+// admin ma status 1, ak to neplati, presmerovat znova na login
 if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
 	header("Location: login.php");
 }
+// nahodou ak niekto sa dostane na stranku bez loginu
 if(!isset($_SESSION["userName"])){
 	header("Location: login.php");
 }
@@ -34,22 +36,58 @@ if(!isset($_SESSION["userName"])){
 							<a class="nav-item nav-link right-free" href="#">Rodičia</a>
 						</div>
 						<form class="form-inline my-2 my-lg-0"
-								action="core/forms/logout_handler.php"
-								method="post">
-
-      							<input class="form-control mr-sm-2 btn-info"
-      									type="submit"
-      									aria-label="Odhlásiť sa"
-      									name="logout"
-      									value="Odhlásiť sa">
-    					</form>
+							action="core/forms/logout_handler.php"
+							method="post">
+							<input class="form-control mr-sm-2 btn-info"
+							type="submit"
+							aria-label="Odhlásiť sa"
+							name="logout"
+							value="Odhlásiť sa">
+						</form>
 					</div>
 				</nav>
 			</div>
-			<div id="udalosti" class="row">
-
-				
-
+			<!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
+			<div id="udalosti" class="row" style="margin:50px;">
+				<div class="container-fluid">
+					<div class="col">
+						
+						<form action='core/forms/admin_form_handler.php' method='post'>
+							<label class='row'>
+								<input class='input' type='hidden' name='event_id' value=''>
+							</label>
+							<label class='row'>Názov udalosti
+								<input class='input' type='text' name='event_name' value='' placeholder='Názov udalosti' required>
+							</label>
+							<label class='row'>Opis udalosti
+								<textarea class='input' rows='4' cols='50' type='text' name='event_description' value='' placeholder='Opis udalosti'></textarea>
+							</label>
+							<label for="row">Typ udalosti
+								<input class='input' type="text" name="event_type" value="" placeholder="Typ udalosti">
+							</label>
+							<label for="row">Dátum začiatku
+								<input class='input' type="date" name="date_from" value="" placeholder="Dátum začiatku">
+							</label>
+							<label for="row">Dátum konca
+								<input class='input' type="date" name="date_to" value="" placeholder="Dátum konca">
+							</label>
+							<label for="row">Čas začiatku
+								<input class='input' type="time" name="time_from" value="" placeholder="Čas začiatku">
+							</label>
+							<label for="row">Čas konca
+								<input class='input' type="time" name="time_to" value="" placeholder="Čas konca">
+							</label>
+							<label class='row'>Miesto udalosti
+								<input class='input' type='text' name='event_place' value='' placeholder='Miesto udalosti'>
+							</label>
+							<label class='row'>
+								<input class='input btn btn-info' type='submit' name='submit' value='Add'>
+							</label>
+						</form>
+					</div>
+					
+					
+				</div>
 			</div>
 			<div>
 				

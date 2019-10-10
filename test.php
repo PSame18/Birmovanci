@@ -1,3 +1,7 @@
+///////////////////////////////
+// ONLY FOR TESTING PURPOSES //
+///////////////////////////////
+
 <?php include_once("core/init.inc.php");
 
 $event_id = 7;

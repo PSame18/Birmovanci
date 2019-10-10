@@ -15,7 +15,6 @@ $_SESSION["loginSuccess"] = true;
 // new instance to connect to DB using PDO
 // $dbHandler = DBHandler::getInstance();
 $dbHandler = DBHandler::getInstance();
-$dbHandler->setDB_name(BIRMOVANCI);
 
 // check if user wrote all input right
 checkFormInput($dbHandler);

@@ -3,7 +3,6 @@ include_once dirname(__FILE__).'/../mail_handler.php';
 include_once dirname(__FILE__).'/../db_handler.php';
 
 $dbHandler = DBHandler::getInstance();
-$dbHandler->setDB_name(EVENTS_DB);
 $user_id = $_SESSION["userId"];
 
 if($_POST["submit"] == "Add"){
@@ -19,37 +18,28 @@ else{
     invitePeople($dbHandler);
 }
 
-header("Location: ../../welcome.php?user=$user_id");
+header("Location: ../../admin.php", TRUE, 303);
 
 function addEvent($dbHandler){
 
     $connect = $dbHandler->connect();
 
-    try{
+    $event_name = trim($_POST["event_name"]);
+    $event_description = trim($_POST["event_description"]);
+    $event_type = trim($_POST["event_type"]) == NULL ? 0 : trim($_POST["event_type"]);
+    $date_from = trim($_POST["date_from"]);
+    $date_to = trim($_POST["date_to"]);
+    $time_from = trim($_POST["time_from"]);
+    $time_to = trim($_POST["time_to"]);
+    $event_place = trim($_POST["event_place"]);
 
-        if($_POST["max_participants"] == null){
+    // send error log to DB to inform about manipulating with DB + all data
+    $query = "INSERT INTO events (event_name, event_description, event_type, date_from, date_to, time_from, time_to, event_place)
+                VALUES (?,?,?,?,?,?,?,?)";
+    $values = array($event_name, $event_description, $event_type, $date_from, $date_to, $time_from, $time_to, $event_place);
 
-            // send error log to DB to inform about manipulating with DB + all data
-            $query = "INSERT INTO Events (name, date_time, description, place) VALUES (?, ?, ?, ?)";
-            $values = array($_POST["name"], $_POST["date_time"], $_POST["description"], $_POST["place"]);
-
-            $connect->run($query, $values);
-
-        }
-        else{
-
-            // send error log to DB to inform about manipulating with DB + all data
-            $query = "INSERT INTO Events (name, date_time, description, place, participants_max_num) VALUES (?, ?, ?, ?, ?)";
-            $values = array($_POST["name"], $_POST["date_time"], $_POST["description"], $_POST["place"], $_POST["max_participants"]);
-
-            $connect->run($query, $values);
-        }
-
-    }catch(Exception $e)
-    {
-        trigger_error($e, E_USER_WARNING);
-    }
-
+    $result = $connect->run($query, $values);
+    echo "RESULT: ". $result;
 
 }
 
