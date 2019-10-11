@@ -61,11 +61,13 @@ class LoggedPDO extends PDO{
                 $pos++;
             }
             if($stmt->execute()){
-                return true;
+                error_log("Query successfully executed!");
             }
             else{
-                return false;
+                error_log("Query execution failed!");
             }
+
+            return $stmt;
         }
     }
 

@@ -15,47 +15,53 @@ class Events extends DBHandler{
         return self::$instance;
     }
 
-    public function getEvents(){
+    public function getAllEvents(){
         try{
 
             // send error log to DB to inform about manipulating with DB + all data
-            $query = "SELECT event_id, name, date_time, place, description, participants_max_num FROM events";
+            $query = "SELECT e.*, t.event_type_name, t.event_credits
+                        FROM events e
+                        LEFT JOIN events_c_type t ON e.event_type = t.event_type_id;";
             $values = array();
 
             // get data in an indexed array
             // select all data from the events table
-            $this->setDB_name(EVENTS_DB);
             $stm = $this->connect()->run($query);
 
             // pass the PDO:FETCH_NUM style to the fetchAll() method
             $rows = $stm->fetchAll(PDO::FETCH_NUM);
 
             return $rows;
+
         }catch(Exception $e)
         {
-            trigger_error($e, E_USER_WARNING);
+            error_log($e);
         }
 
     }
 
-    public function getSubscribedEvents($user_id){
-        try{
+    // return 3 events that will be soon
+    public function getCurrentEvents(){
 
-            // send error log to DB to inform about manipulating with DB + all data
-            $query = "SELECT e.name FROM `events` e JOIN `subscription` s WHERE s.user_id = ? AND s.event_id = e.event_id";
-            $values = array($user_id);
+        unset($allEvents);
+        $allEvents = $this->getAllEvents();
 
-            $this->setDB_name(EVENTS_DB);
-            $stm = $this->connect()->run($query, $values);
-            // pass the PDO:FETCH_NUM style to the fetchAll() method
-            $rows = $stm->fetchAll(PDO::FETCH_NUM);
+        usort($allEvents, array("Events", "sortEventsByDate"));
+        $upToDateEvents = array_slice($allEvents, 0, 3);
 
-            return $rows;
+        return $upToDateEvents;
 
-        }catch(Exception $e)
+    }
+
+    public function sortEventsByDate($event1, $event2){
+
+        if($event1[4] == $event2[4])
         {
-            trigger_error($e, E_USER_ERROR);
+            return 0;
         }
+
+        return ($event1[4] < $event2[4]) ? -1 : 1;
+
     }
 }
 

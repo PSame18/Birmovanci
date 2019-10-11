@@ -35,14 +35,19 @@ function checkFormInput($dbHandler){
         // get data in an indexed array
         // select all data from the events table
         $stmt = $connect->run($query, $values);
-        // pass the PDO:FETCH_NUM style to the fetchAll() method
-        $row = $stmt->fetch(PDO::FETCH_NUM);
-    }
-    catch(PDOException $e)
-    {
+
+        if($stmt !== false){
+            // pass the PDO:FETCH_NUM style to the fetchAll() method
+            $row = $stmt->fetch(PDO::FETCH_NUM);
+        }
+        else{
+            echo "Problem autentifikovat, ci ste to vy!!!";
+        }
+    }catch(PDOExcpetion $e){
         error_log($e);
     }
-
+        
+        
     
     if($row[1] == $_SESSION["userLogin"] && $row[2] == $_SESSION["userPwd"]){
         $user_id = $row[0];
@@ -59,19 +64,19 @@ function checkFormInput($dbHandler){
 
         switch ($user_status) {
             case 1:
-                header("Location: ../../admin.php");
+                header("Location: ../../admin.php", TRUE, 307);
                 break;
             case 2:
-                header("Location: ../../animator.php");
+                header("Location: ../../animator.php", TRUE, 307);
                 break;
             case 3:
-                header("Location: ../../host.php");
+                header("Location: ../../host.php", TRUE, 307);
                 break;
             case 4:
-                header("Location: ../../birmovanec.php");
+                header("Location: ../../birmovanec.php", TRUE, 307);
                 break;
             default:
-                header("Location: ../../login.php");
+                header("Location: ../../login.php", TRUE, 307);
                 break;
         }
 

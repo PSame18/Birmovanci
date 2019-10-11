@@ -1,5 +1,9 @@
 <?php
+
 include_once("core/init.inc.php");
+include_once("core/events.php");
+include_once("core/event_types.php");
+
 // kontrola udajov, zabezpecenie
 if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
 	header("Location: login.php");
@@ -12,6 +16,13 @@ if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
 if(!isset($_SESSION["userName"])){
 	header("Location: login.php");
 }
+
+$events = Events::getInstance();
+$eventsRows = $events->getAllEvents();
+
+$event_types = EventTypes::getInstance();
+$typeRows = $event_types->getEventTypes();
+
 ?>
 <html>
 	<head>
@@ -22,6 +33,7 @@ if(!isset($_SESSION["userName"])){
 	<body>
 		
 		<div class="container-fluid">
+			<!--
 			<div>
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 					<a class="navbar-brand" href="#">Domov</a>
@@ -47,11 +59,32 @@ if(!isset($_SESSION["userName"])){
 					</div>
 				</nav>
 			</div>
+			-->
+
 			<!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
-			<div id="udalosti" class="row" style="margin:50px;">
+			<div id="udalosti" style="padding: 20px; margin: 20px;">
 				<div class="container-fluid">
-					<div class="col">
+					
+					<!-- NIC NEVIDIM CEZ TEN BLBY NAVBAR-->
+					<div style="width: 100%; height:  200px; background-color: blue;">
 						
+					</div>
+
+					<!-- Tu budu zobrazene vsetky udalosti -->
+					<div>
+						
+					<?php
+
+						foreach ($eventsRows as $eventRow) {
+							printEventPost($eventRow);
+						}
+
+					?>
+
+					</div>
+
+					<!-- Formular pre pridavanie udalosti -->
+					<div>						
 						<form action='core/forms/admin_form_handler.php' method='post'>
 							<label class='row'>
 								<input class='input' type='hidden' name='event_id' value=''>
@@ -63,7 +96,13 @@ if(!isset($_SESSION["userName"])){
 								<textarea class='input' rows='4' cols='50' type='text' name='event_description' value='' placeholder='Opis udalosti'></textarea>
 							</label>
 							<label for="row">Typ udalosti
-								<input class='input' type="text" name="event_type" value="" placeholder="Typ udalosti">
+								<select name='event_type'>
+									<?php
+										foreach ($typeRows as $typeRow) {
+											echo "<option value='$typeRow[0]'> $typeRow[1]</option>";
+										}
+									?>
+								</select>
 							</label>
 							<label for="row">Dátum začiatku
 								<input class='input' type="date" name="date_from" value="" placeholder="Dátum začiatku">
@@ -81,11 +120,28 @@ if(!isset($_SESSION["userName"])){
 								<input class='input' type='text' name='event_place' value='' placeholder='Miesto udalosti'>
 							</label>
 							<label class='row'>
-								<input class='input btn btn-info' type='submit' name='submit' value='Add'>
+								<input class='input btn btn-info' type='submit' name='submit' value='Pridať udalosť'>
 							</label>
 						</form>
 					</div>
-					
+
+					<!-- Formular pre vymazanie udalosti -->
+					<div>
+						<form action="core/forms/admin_form_handler.php" method="post">
+
+							<?php
+							foreach ($eventsRows as $eventRow) {
+								echo "<label class='row'>";
+									echo"<input class='input' type='checkbox' name='eventId[]' value='$eventRow[0]'> $eventRow[1]";
+								echo "</label>";
+							}
+							?>
+
+							<label class='row'>
+								<input class='input btn btn-info' type='submit' name='submit' value='Vymazať udalosť'>
+							</label>
+						</form>
+					</div>
 					
 				</div>
 			</div>
@@ -98,3 +154,42 @@ if(!isset($_SESSION["userName"])){
 		<PHP><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script><PHP>
 	</body>
 </html>
+
+<!-- ////////////// -->
+<!-- HELP FUNCTIONS -->
+<!-- ////////////// -->
+
+<?php
+
+	function printEventPost($eventRow){
+
+		echo "<div class='container' style='background-color: red; color: black;'>"; // div1
+
+			echo "<div class='row'>"; // div2
+
+				echo "<br>";
+				echo "<h3>Nazov: $eventRow[1]</h3>";
+				echo "<br>";
+				echo "<p>Popis: $eventRow[2]<p>";
+				echo "<br>";
+				echo "<p>Typ: $eventRow[9] ($eventRow[10] kreditov)<p>";
+				echo "<br>";
+				echo "<p>Datum od: $eventRow[4]<p>";
+				echo "<br>";
+				echo "<p>Datum do: $eventRow[5]<p>";
+				echo "<br>";
+				echo "<p>Cas od: $eventRow[6]<p>";
+				echo "<br>";
+				echo "<p>Cas do: $eventRow[7]<p>";
+				echo "<br>";
+				echo "<p>Miesto: $eventRow[8]<p>";
+				echo "<br>";
+				echo "<hr>";
+
+			echo "</div>"; // div2
+
+		echo "</div>";	//  div1
+
+	}
+
+?>
