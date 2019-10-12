@@ -6,15 +6,15 @@ include_once("core/event_types.php");
 
 // kontrola udajov, zabezpecenie
 //if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
-//	header("Location: login.php");
+	//header("Location: login.php");
 //}
 // admin ma status 1, ak to neplati, presmerovat znova na login
 //if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
-//	header("Location: login.php");
+	//header("Location: login.php");
 //}
 // nahodou ak niekto sa dostane na stranku bez loginu
 //if(!isset($_SESSION["userName"])){
-//	header("Location: login.php");
+	//header("Location: login.php");
 //}
 
 //$events = Events::getInstance();
@@ -33,7 +33,7 @@ include_once("core/event_types.php");
 	<body>
 		
 		<div class="container-fluid">
-			
+			<!--
 			<div>
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 					<a class="navbar-brand" href="#">Domov</a>
@@ -59,6 +59,7 @@ include_once("core/event_types.php");
 					</div>
 				</nav>
 			</div>
+			-->
 
 			<!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
 			<div id="udalosti" style="padding: 20px; margin: 20px;">
@@ -97,9 +98,9 @@ include_once("core/event_types.php");
 							<label for="row">Typ udalosti
 								<select name='event_type'>
 									<?php
-										//foreach ($typeRows as $typeRow) {
-										//	echo "<option value='$typeRow[0]'> $typeRow[1]</option>";
-										//}
+										foreach ($typeRows as $typeRow) {
+											echo "<option value='$typeRow[0]'> $typeRow[1]</option>";
+										}
 									?>
 								</select>
 							</label>
