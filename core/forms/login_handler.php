@@ -17,11 +17,13 @@ $_SESSION["loginSuccess"] = true;
 $dbHandler = DBHandler::getInstance();
 
 // check if user wrote all input right
-checkFormInput($dbHandler);
+//checkFormInput($dbHandler);
 
 // /////////////////
 // HELP FUNCTIONS //
 // /////////////////
+ 
+header("Location: ../../admin.php", TRUE, 307);
 
 function checkFormInput($dbHandler){
 
