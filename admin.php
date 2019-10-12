@@ -5,17 +5,17 @@ include_once("core/events.php");
 include_once("core/event_types.php");
 
 // kontrola udajov, zabezpecenie
-if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
-	header("Location: login.php");
-}
+//if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
+//	header("Location: login.php");
+//}
 // admin ma status 1, ak to neplati, presmerovat znova na login
-if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
-	header("Location: login.php");
-}
+//if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
+//	header("Location: login.php");
+//}
 // nahodou ak niekto sa dostane na stranku bez loginu
-if(!isset($_SESSION["userName"])){
-	header("Location: login.php");
-}
+//if(!isset($_SESSION["userName"])){
+//	header("Location: login.php");
+//}
 
 $events = Events::getInstance();
 $eventsRows = $events->getAllEvents();
@@ -24,6 +24,7 @@ $event_types = EventTypes::getInstance();
 $typeRows = $event_types->getEventTypes();
 
 ?>
+
 <html>
 	<head>
 		<!-- styling -->
@@ -33,7 +34,7 @@ $typeRows = $event_types->getEventTypes();
 	<body>
 		
 		<div class="container-fluid">
-			<!--
+			
 			<div>
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 					<a class="navbar-brand" href="#">Domov</a>
@@ -59,11 +60,11 @@ $typeRows = $event_types->getEventTypes();
 					</div>
 				</nav>
 			</div>
-			-->
+			
 
 			<!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
 			<div id="udalosti" style="padding: 20px; margin: 20px;">
-				<div class="container-fluid">
+				<div class="container">
 					
 					<!-- NIC NEVIDIM CEZ TEN BLBY NAVBAR-->
 					<div style="width: 100%; height:  200px; background-color: blue;">
