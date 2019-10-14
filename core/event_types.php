@@ -19,7 +19,7 @@ class EventTypes extends DBHandler{
         try{
 
             // send error log to DB to inform about manipulating with DB + all data
-            $query = "SELECT * FROM events_c_type";
+            $query = "SELECT * FROM event_c_type";
             $values = array();
 
             // get data in an indexed array

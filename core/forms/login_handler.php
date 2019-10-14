@@ -1,7 +1,9 @@
 <?php
 
-include_once dirname(__FILE__).'/../db_handler.php';
-include_once dirname(__FILE__).'/../user_roles.php';
+include_once ('../db_handler.php');
+include_once ('../user_roles.php');
+
+$path = dirname(__FILE__);
 
 if(!isset($_SESSION["userLogin"])){
     $_SESSION["userLogin"] = $_POST["login"];
@@ -17,13 +19,11 @@ $_SESSION["loginSuccess"] = true;
 $dbHandler = DBHandler::getInstance();
 
 // check if user wrote all input right
-//checkFormInput($dbHandler);
+checkFormInput($dbHandler);
 
 // /////////////////
 // HELP FUNCTIONS //
 // /////////////////
- 
-header("Location: ../../admin.php", TRUE, 307);
 
 function checkFormInput($dbHandler){
 
@@ -31,7 +31,10 @@ function checkFormInput($dbHandler){
         $connect = $dbHandler->connect();
 
         // send error log to DB to inform about manipulating with DB + all data
-        $query = "SELECT user_id, user_login, user_pwd, user_status, user_group, user_adress_area, user_name FROM users WHERE user_login = ? AND user_pwd = ?";
+        $query = "SELECT user_id, user_login, user_pwd, user_status, user_group,
+                         user_address_area, user_name, user_credits 
+                  FROM users 
+                  WHERE user_login = ? AND user_pwd = ?";
         $values = array($_SESSION["userLogin"], $_SESSION["userPwd"]);
 
         // get data in an indexed array
@@ -55,18 +58,18 @@ function checkFormInput($dbHandler){
         $user_id = $row[0];
         $user_status = $row[3];
         $user_group = $row[4];
-        $user_adress_area = $row[5];
+        $user_address_area = $row[5];
         $user_name = $row[6];
         $_SESSION["loginSuccess"] = true;
         $_SESSION["userId"] = $user_id;
         $_SESSION["userStatus"] = $user_status;
         $_SESSION["userGroup"] = $user_group;
-        $_SESSION["userAdressArea"] = $user_adress_area;
+        $_SESSION["userAddressArea"] = $user_address_area;
         $_SESSION["userName"] = $user_name;
 
         switch ($user_status) {
             case 1:
-                header("Location: ../../admin.php", TRUE, 307);
+                header("Location: ../../home", TRUE, 307);
                 break;
             case 2:
                 header("Location: ../../animator.php", TRUE, 307);
@@ -78,7 +81,7 @@ function checkFormInput($dbHandler){
                 header("Location: ../../birmovanec.php", TRUE, 307);
                 break;
             default:
-                header("Location: ../../login.php", TRUE, 307);
+                header("Location: ../../login", TRUE, 307);
                 break;
         }
 
@@ -86,7 +89,7 @@ function checkFormInput($dbHandler){
     else{
 
         $_SESSION["loginSuccess"] = false;
-        header("Location: ../../login.php");
+        header("Location: ../../login");
 
     }
 

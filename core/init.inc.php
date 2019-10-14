@@ -9,10 +9,10 @@ if(!isset($_SESSION))
 }
 
 // INIT DATABASE CONNECTION
-if (!defined('SERVERNAME')) define('SERVERNAME', '127.0.0.1');
-if (!defined('USERNAME')) define('USERNAME', 'root');
-if (!defined('PASSWORD')) define('PASSWORD', '');
-if (!defined('BIRMOVANCI')) define('BIRMOVANCI', 'birmovanci');
+if (!defined('SERVERNAME')) define('SERVERNAME', 'dw10.nameserver.sk');
+if (!defined('USERNAME')) define('USERNAME', 'rkcpoprad_birm');
+if (!defined('PASSWORD')) define('PASSWORD', 'dbBirmovanci13');
+if (!defined('BIRMOVANCI')) define('BIRMOVANCI', 'rkcpoprad_birm');
 
 if (!defined('USER_DEFAULT_ROLE')) define('USER_DEFAULT_ROLE', 1);
 

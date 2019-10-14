@@ -25,7 +25,7 @@ function addEvent($dbHandler){
     $connect = $dbHandler->connect();
 
     $event_name = trim($_POST["event_name"]);
-    $event_description = trim($_POST["event_description"]);
+    $event_desc = trim($_POST["event_desc"]);
     $event_type = trim($_POST["event_type"]) == NULL ? 0 : trim($_POST["event_type"]);
     $date_from = trim($_POST["date_from"]);
     $date_to = trim($_POST["date_to"]);
@@ -34,9 +34,9 @@ function addEvent($dbHandler){
     $event_place = trim($_POST["event_place"]);
 
     // send error log to DB to inform about manipulating with DB + all data
-    $query = "INSERT INTO events (event_name, event_description, event_type, date_from, date_to, time_from, time_to, event_place)
+    $query = "INSERT INTO events (event_name, event_desc, event_type, date_from, date_to, time_from, time_to, event_place)
                 VALUES (?,?,?,?,?,?,?,?)";
-    $values = array($event_name, $event_description, $event_type, $date_from, $date_to, $time_from, $time_to, $event_place);
+    $values = array($event_name, $event_desc, $event_type, $date_from, $date_to, $time_from, $time_to, $event_place);
 
     $result = $connect->run($query, $values);
 

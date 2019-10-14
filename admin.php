@@ -5,17 +5,17 @@ include_once("core/event_types.php");
 
 // kontrola udajov, zabezpecenie
 if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
-	header("Location: login.php");
+	header("Location: login");
 }
 
 // admin ma status 1, ak to neplati, presmerovat znova na login
 if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
-	header("Location: login.php");
+	header("Location: login");
 }
 
 // nahodou ak niekto sa dostane na stranku bez loginu
 if(!isset($_SESSION["userName"])){
-	header("Location: login.php");
+	header("Location: login");
 }
 
 $events = Events::getInstance();
@@ -78,7 +78,7 @@ $typeRows = $event_types->getEventTypes();
 								<input class='input' type='text' name='event_name' value='' placeholder='Názov udalosti' required>
 							</label>
 							<label class='row'>Opis udalosti
-								<textarea class='input' rows='4' cols='50' type='text' name='event_description' value='' placeholder='Opis udalosti'></textarea>
+								<textarea class='input' rows='4' cols='50' type='text' name='event_desc' value='' placeholder='Opis udalosti'></textarea>
 							</label>
 							<label for="row">Typ udalosti
 								<select name='event_type'>

@@ -21,7 +21,7 @@ class Events extends DBHandler{
             // send error log to DB to inform about manipulating with DB + all data
             $query = "SELECT e.*, t.event_type_name, t.event_credits
                         FROM events e
-                        LEFT JOIN events_c_type t ON e.event_type = t.event_type_id;";
+                        LEFT JOIN event_c_type t ON e.event_type = t.event_type_id;";
             $values = array();
 
             // get data in an indexed array

@@ -45,7 +45,7 @@ if(isset($_SESSION["loginSuccess"])){
     <!-- form for login -->
     <div class="container form-container">
         <div class="form">
-            <form action="core/forms/login_handler.php?t=<?php echo"$time"?>" method="post">
+            <form action="core/forms/login_handler.php" method="post">
                 <label class="row" for="">
                     <input type="text" name="login" value="" placeholder="Login" required>
                 </label>
