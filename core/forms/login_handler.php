@@ -9,7 +9,7 @@ if(!isset($_SESSION["userLogin"])){
     $_SESSION["userLogin"] = $_POST["login"];
 }
 if(!isset($_SESSION["userPwd"])){
-    $_SESSION["userPwd"] = $_POST["password"];
+    $_SESSION["userPwd"] = md5($_POST["password"]);
 }
 
 $_SESSION["loginSuccess"] = true;

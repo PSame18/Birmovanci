@@ -19,7 +19,7 @@ if(!isset($_SESSION["userName"])){
 }
 
 $events = Events::getInstance();
-$eventsRows = $events->getAllEvents();
+$allEventsRows = $events->getAllEvents();
 $event_types = EventTypes::getInstance();
 $typeRows = $event_types->getEventTypes();
 
@@ -63,7 +63,7 @@ $typeRows = $event_types->getEventTypes();
 					<!-- Tu budu zobrazene vsetky udalosti -->
 					<div>
 						<?php
-						foreach ($eventsRows as $eventRow) {
+						foreach ($allEventsRows as $eventRow) {
 							printEventPost($eventRow);
 						}
 						?>
@@ -106,6 +106,9 @@ $typeRows = $event_types->getEventTypes();
 							<label class='row'>Miesto udalosti
 								<input class='input' type='text' name='event_place' value='' placeholder='Miesto udalosti'>
 							</label>
+							<label class='row'>Skupina, ktorej sa týka udalosť
+								<input class='input' type='number' name='event_group' value='' placeholder=''>
+							</label>
 							<label class='row'>
 								<input class='input btn btn-info' type='submit' name='submit' value='Pridať udalosť'>
 							</label>
@@ -116,7 +119,7 @@ $typeRows = $event_types->getEventTypes();
 						<form action="core/forms/admin_form_handler.php" method="post">
 							
 							<?php
-							foreach ($eventsRows as $eventRow) {
+							foreach ($allEventsRows as $eventRow) {
 								echo "<label class='row'>";
 										echo"<input class='input' type='checkbox' name='eventId[]' value='$eventRow[0]'> $eventRow[1]";
 								echo "</label>";
@@ -155,7 +158,7 @@ $typeRows = $event_types->getEventTypes();
 				echo "<br>";
 				echo "<p>Popis: $eventRow[2]<p>";
 				echo "<br>";
-				echo "<p>Typ: $eventRow[9] ($eventRow[10] kreditov)<p>";
+				echo "<p>Typ: $eventRow[11] ($eventRow[12] kreditov)<p>";
 				echo "<br>";
 				echo "<p>Datum od: $eventRow[4]<p>";
 				echo "<br>";
