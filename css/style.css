@@ -1,20 +1,85 @@
+/*/////////////////////////// DEFAULT SETTINGS ///////////////////////////*/
+
+/*//////////// BACKGROUND ////////////*/
+
 body {
-    background-color: whitesmoke;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    background: rgb(4, 25, 140);
+    background: -moz-linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+    background: -webkit-linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+    background: linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
 }
 
-/* LOGIN PAGE */
-.form-container {
-    width: fit-content;
-    margin: 0 auto;
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*/////////////////////////// STYLING THE WEBSITE ///////////////////////////*/
+
+
+/*/////////////////////////// LOGIN PAGE ///////////////////////////*/
+
+body#login-body {
+    padding: 2%;
+}
+
+h1.birmovanci-title {
+    font-weight: 800;
+    color: white;
+    font-size: 90;
+}
+
+img.logos {
+    width: 50%;
+    max-width: 100%;
+    height: auto;
 }
 
 .form {
-    border: 1px solid grey;
-    border-radius: 5px;
-    background-color: grey;
+    width: fit-content;
+    max-height: 50%;
+    margin: 0 auto;
+    border-radius: 25px;
+    background-color: white;
+    padding: 5%;
+}
+
+h3.prihlasenie {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 30;
+    color: #E95570;
     text-align: center;
-    padding: 50px 50px 20px 50px;
-    margin: 100px 0;
+}
+
+label.row {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+}
+
+input.login-name,
+input.login-password {
+    padding: 5%;
+    border-radius: 50px;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #E95570;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25;
+    margin-top: 20px;
+    margin-bottom: 0;
+    border-radius: 50px;
 }
 
 #wrong-div {
@@ -32,13 +97,6 @@ body {
     text-align: center;
     font-size: 20px;
     display: inline;
-}
-
-.login-btn {
-    margin-top: 20px;
-    margin-bottom: 0;
-    text-align: center;
-    width: 100%;
 }
 
 /* WELCOME PAGE */
@@ -118,7 +176,7 @@ input[type=submit] {
     margin-right: 8px;
 }
 
-.invite-input{
+.invite-input {
     margin-left: 15px;
     width: 100%;
 }
@@ -127,13 +185,13 @@ input[type=submit] {
 ADMIN PAGE
  */
 
-.right-free{
+.right-free {
 
     margin-right: 80px;
-    
+
 }
 
-#udalosti{
+#udalosti {
 
     background-color: blue;
 
