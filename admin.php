@@ -1,4 +1,4 @@
-<?php
+<?php header('Content-Type: text/html; charset=utf-8');
 include_once("core/init.inc.php");
 include_once("core/events.php");
 include_once("core/event_types.php");
@@ -26,6 +26,7 @@ $typeRows = $event_types->getEventTypes();
 ?>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<!-- styling -->
 		<PHP>
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -68,9 +69,16 @@ $typeRows = $event_types->getEventTypes();
 						}
 						?>
 					</div>
+
+					<?php
+
+						addEventType();
+
+					?>
+
 					<!-- Formular pre pridavanie udalosti -->
 					<div>
-						<form action='core/forms/admin_form_handler.php' method='post'>
+						<form action='core/forms/admin_form_handler.php' method='post' accept-charset="utf-8">
 							<label class='row'>
 								<input class='input' type='hidden' name='event_id' value=''>
 							</label>
@@ -82,9 +90,10 @@ $typeRows = $event_types->getEventTypes();
 							</label>
 							<label for="row">Typ udalosti
 								<select name='event_type'>
-									
+
 									<?php
 										foreach ($typeRows as $typeRow) {
+
 											echo "<option value='$typeRow[0]'> $typeRow[1]</option>";
 										}
 									?>
@@ -117,11 +126,12 @@ $typeRows = $event_types->getEventTypes();
 					<!-- Formular pre vymazanie udalosti -->
 					<div>
 						<form action="core/forms/admin_form_handler.php" method="post">
-							
+
 							<?php
 							foreach ($allEventsRows as $eventRow) {
 								echo "<label class='row'>";
-										echo"<input class='input' type='checkbox' name='eventId[]' value='$eventRow[0]'> $eventRow[1]";
+								$type =  htmlspecialchars($eventRow[1], ENT_NOQUOTES, "UTF-8");
+										echo"<input class='input' type='checkbox' name='eventId[]' value='$eventRow[0]'> $type";
 								echo "</label>";
 							}
 							?>
@@ -174,5 +184,21 @@ $typeRows = $event_types->getEventTypes();
 			echo "</div>"; // div2
 		echo "</div>";	//  div1
 	}
-	
+
+?>
+
+<?php
+
+function addEventType(){
+
+	echo "<div class='row'>";
+		echo "<form action='core/forms/admin_form_handler.php' method='post' accept-charset='utf-8'>";
+			echo "<input type='text' name='event_type_name' value='' placeholder='Názov'>";
+			echo "<input type='number' name='event_credits' value='' placeholder='Počet kreditov'>";
+			echo "<input type='submit' name='submit' value='Pridať typ'>";
+		echo "</form>";
+	echo "</div>";
+
+}
+
 ?>

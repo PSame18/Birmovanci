@@ -27,7 +27,7 @@ class DBHandler {
             // create new PDO object only if doesn't exist
             if($this->db == null){
                 // to create a connection string to the database
-                $this->db = new LoggedPDO("mysql:host=$this->servername;dbname=$this->db_name", $this->username, $this->password);
+                $this->db = new LoggedPDO("mysql:host=$this->servername;dbname=$this->db_name;charset=utf8", $this->username, $this->password);
                 // set the PDO error mode to exception
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }

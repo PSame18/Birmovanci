@@ -15,7 +15,7 @@ class EventTypes extends DBHandler{
     }
 
     public function getEventTypes(){
-        
+
         try{
 
             // send error log to DB to inform about manipulating with DB + all data

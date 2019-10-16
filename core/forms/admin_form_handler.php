@@ -13,9 +13,12 @@ else if($_POST["submit"] == "Vymazať udalosť"){
     // delete event from DB
     deleteEvent($dbHandler);
 }
+else if($_POST["submit"] == "Pridať typ"){
+    // delete event from DB
+    addEventType($dbHandler);
+}
 else{
-    // invite people to event
-    invitePeople($dbHandler);
+
 }
 
 header("Location: ../../admin.php", TRUE, 303);
@@ -62,6 +65,22 @@ function deleteEvent($dbHandler){
         }
 
     }
+
+}
+
+function addEventType($dbHandler){
+
+    $connect = $dbHandler->connect();
+
+    $event_type_name = trim($_POST["event_type_name"]);
+    $event_credits = trim($_POST["event_credits"]);
+
+    // send error log to DB to inform about manipulating with DB + all data
+    $query = "INSERT INTO event_c_type (event_type_name, event_credits)
+                VALUES (?,?)";
+    $values = array($event_type_name, $event_credits);
+
+    $result = $connect->run($query, $values);
 
 }
 
