@@ -21,7 +21,7 @@ else{
 
 }
 
-header("Location: ../../admin.php", TRUE, 303);
+header("Location: ../../domov", TRUE, 303);
 
 function addEvent($dbHandler){
 

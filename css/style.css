@@ -104,15 +104,6 @@ input.login-password {
     display: inline;
 }
 
-/* WELCOME PAGE */
-.user {
-    background-color: grey;
-    color: whitesmoke;
-    width: 100%;
-    margin: 20px;
-    padding: 20px;
-}
-
 .logout-btn {
     display: block;
     position: absolute;
@@ -120,84 +111,10 @@ input.login-password {
     margin-right: 15px;
 }
 
-.events {
-    background-color: whitesmoke;
-    width: 100%;
-    margin: 20px 0;
-}
-
-#event {
-    background-color: grey;
-    border-radius: 5px;
-    margin: 20px;
-    padding: 20px;
-    color: whitesmoke;
-    transition: 0.5s ease;
-}
-
-#event:hover {
-    box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.75);
-}
-
-.event-buttons {
-    text-align: right;
-    padding: 0 10px 0 0;
-}
-
-.adminSection {
-    padding-top: 10px;
-}
-
-.formSection {
-    padding: 10px 15px 0 15px;
-    margin: 0 auto;
-}
-
-.formSection form {
-    margin: 0 auto;
-}
-
-.admin-btn {
-    margin: 20px 0;
-    text-align: center;
-    width: 100%;
-}
-
 .input {
-    width: 100%;
-}
-
-.invite-btn {
     width: 100%;
 }
 
 input[type=submit] {
     text-align: center;
-}
-
-#subscribe-btn,
-#unsubscribe-btn {
-    text-align: right;
-    margin-right: 8px;
-}
-
-.invite-input {
-    margin-left: 15px;
-    width: 100%;
-}
-
-/*
-ADMIN PAGE
- */
-
-.right-free {
-
-    margin-right: 80px;
-
-}
-
-#udalosti {
-
-    background-color: blue;
-
 }
