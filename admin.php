@@ -2,6 +2,7 @@
 include_once("core/init.inc.php");
 include_once("core/events.php");
 include_once("core/event_types.php");
+include_once("core/users.php");
 
 // kontrola udajov, zabezpecenie
 if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
@@ -9,9 +10,9 @@ if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
 }
 
 // admin ma status 1, ak to neplati, presmerovat znova na login
-if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
-	header("Location: login");
-}
+//if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] != 1){
+//	header("Location: login");
+//fire}
 
 // nahodou ak niekto sa dostane na stranku bez loginu
 if(!isset($_SESSION["userName"])){
@@ -20,8 +21,12 @@ if(!isset($_SESSION["userName"])){
 
 $events = Events::getInstance();
 $allEventsRows = $events->getAllEvents();
+
 $event_types = EventTypes::getInstance();
 $typeRows = $event_types->getEventTypes();
+
+$users = Users::getInstance();
+$allUsersRows = $users->getAllUsers();
 
 ?>
 <html>
@@ -141,6 +146,15 @@ $typeRows = $event_types->getEventTypes();
 							</label>
 						</form>
 					</div>
+
+					<div>
+						<?php
+						foreach ($allUsersRows as $usersRow){
+							echo $usersRow[0] . ": " . htmlspecialchars(utf8_decode($usersRow[1]));
+						}
+						?>
+					</div>
+
 				</div>
 			</div>
 		</div>
