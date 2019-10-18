@@ -118,3 +118,15 @@ input.login-password {
 input[type=submit] {
     text-align: center;
 }
+
+[type=file] {
+    position: absolute;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+#event_img_label{
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+}

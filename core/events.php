@@ -19,9 +19,15 @@ class Events extends DBHandler{
         try{
 
             // send error log to DB to inform about manipulating with DB + all data
-            $query = "SELECT e.*, t.event_type_name, t.event_credits
+            $query = "SELECT e.event_id, e.event_name, e.event_desc, e.event_type,
+                        DATE_FORMAT(e.date_from, '%e.%c.%Y') AS date_from,
+                        DATE_FORMAT(e.date_to, '%e.%c.%Y') AS date_to,
+                        e.time_from, e.time_to,
+                        e.event_place, e.event_group, e.event_area, e.date_created,
+                        t.event_type_name, t.event_credits, e.event_img
                         FROM events e
-                        LEFT JOIN event_c_type t ON e.event_type = t.event_type_id;";
+                        LEFT JOIN event_c_type t ON e.event_type = t.event_type_id
+                        ORDER BY e.date_created DESC;";
             $values = array();
 
             // get data in an indexed array

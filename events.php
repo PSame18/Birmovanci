@@ -136,6 +136,9 @@ $allUsersRows = $users->getAllUsers();
 			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		</PHP>
 		<PHP>
+			<script src="js/inputLabelChanger.js"></script>
+		</PHP>
+		<PHP>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		</PHP>
 		<PHP>
@@ -146,28 +149,77 @@ $allUsersRows = $users->getAllUsers();
 
 <?php
 function printEventPost($eventRow){
-	echo "<div class='container' style='background-color: red; color: black;'>"; // div1
-		echo "<div class='row'>"; // div2
-			echo "<br>";
-			echo "<h3>Nazov: $eventRow[1]</h3>";
-			echo "<br>";
-			echo "<p>Popis: $eventRow[2]<p>";
-			echo "<br>";
-			echo "<p>Typ: $eventRow[11] ($eventRow[12] kreditov)<p>";
-			echo "<br>";
-			echo "<p>Datum od: $eventRow[4]<p>";
-			echo "<br>";
-			echo "<p>Datum do: $eventRow[5]<p>";
-			echo "<br>";
-			echo "<p>Cas od: $eventRow[6]<p>";
-			echo "<br>";
-			echo "<p>Cas do: $eventRow[7]<p>";
-			echo "<br>";
-			echo "<p>Miesto: $eventRow[8]<p>";
-			echo "<br>";
-			echo "<hr>";
-			echo "</div>"; // div2
-		echo "</div>";	//  div1
+
+	$parts1 = explode(':', $eventRow[6]);
+	$parts2 = explode(':', $eventRow[7]);
+
+	// ak sa datumy rovnaju, zobrazi sa len jeden
+	if($eventRow[4] == $eventRow[5]){
+
+		// datum od nie je rovny NULL
+		if($eventRow[4] != null){
+			$date = $eventRow[4];
+		}
+		else{
+			$date = null;
+		}
+
+		// cas od nie je rovny NULL
+		if($eventRow[6] != null){
+			$time  = "$parts1[0]:$parts1[1]";
+		}
+		else{
+			$time = null;
+		}
+
+	}
+	// datumy sa nerovnaju, zobrazia sa oba
+	else{
+		$date = $eventRow[4] . " - " . $eventRow[5];
+		$time  = "$parts1[0]:$parts1[1] - $parts2[0]:$parts2[1]";
+	}
+
+	if($eventRow[9] != 0){
+		$group = "Pre skupinu: " . $eventRow[9];
+	}
+	else{
+		$group = null;
+	}
+
+	if($eventRow[10] != 'N'){
+		if($eventRow[10] == 'J'){
+			$area = "Pre farnosť Poprad-Juh";
+		}
+		else{
+			$area = "Pre farnosť Poprad-Mesto";
+		}
+	}
+	else{
+		$area = null;
+	}
+
+	$image = $eventRow[14];
+	$image_src = "pictures/" . $image;
+
+	echo "<div class='card' style='width: 18rem;'>";
+		if($image != null){
+			echo "<img src='$image_src' class='card-img-top'>";
+		}
+  		echo "<div class='card-body'>";
+    		echo "<h5 class='card-title'>$eventRow[1]</h5>";
+    		if($date != null && $time != null){
+    			echo "<h6 class='card-subtitle mb-2 text-muted'>$date, $time, $eventRow[8]</h6>";
+    		}
+    		if($group != null){
+    			echo "<h6 class='card-subtitle mb-2 text-muted'>$group</h6>";
+    		}
+    		if($area != null){
+    			echo "<h6 class='card-subtitle mb-2 text-muted'>$area</h6>";
+    		}
+    		echo "<p class='card-text'>$eventRow[2]</p>";
+    		echo "<a href='#' class='btn btn-primary'>Go somewhere</a>";
+  		echo "</div>";
+	echo "</div>";
 }
 ?>
 
@@ -199,44 +251,76 @@ function addEventType(){
 
 <?php
 function addEvent($typeRows){
-	echo "<form action='core/forms/admin_form_handler.php' method='post' accept-charset='utf-8'>";
-			echo "<label class='row'>";
-				echo "<input class='input' type='hidden' name='event_id' value=''>";
-			echo "</label>";
-			echo "<label class='row'>Názov udalosti";
-				echo "<input class='input' type='text' name='event_name' value='' placeholder='Názov udalosti' required>";
-			echo "</label>";
-			echo "<label class='row'>Opis udalosti";
-				echo "<textarea class='input' rows='4' cols='50' type='text' name='event_desc' value='' placeholder='Opis udalosti'></textarea>";
-			echo "</label>";
-			echo "<label for='row'>Typ udalosti";
-				echo "<select name='event_type'>";
-					foreach ($typeRows as $typeRow) {
-					echo "<option value='$typeRow[0]'> $typeRow[1]</option>";
-					}
-				echo "</select>";
-			echo "</label>";
-			echo "<label for='row'>Dátum začiatku";
-					echo "<input class='input' type='date' name='date_from' value='' placeholder='Dátum začiatku'>";
-			echo "</label>";
-			echo "<label for='row'>Dátum konca";
-					echo "<input class='input' type='date' name='date_to' value='' placeholder='Dátum konca'>";
-			echo "</label>";
-			echo "<label for='row'>Čas začiatku";
-					echo "<input class='input' type='time' name='time_from' value='' placeholder='Čas začiatku'>";
-			echo "</label>";
-			echo "<label for='row'>Čas konca";
-					echo "<input class='input' type='time' name='time_to' value='' placeholder='Čas konca'>";
-			echo "</label>";
-			echo "<label class='row'>Miesto udalosti";
-					echo "<input class='input' type='text' name='event_place' value='' placeholder='Miesto udalosti'>";
-			echo "</label>";
-			echo "<label class='row'>Skupina, ktorej sa týka udalosť";
-					echo "<input class='input' type='number' name='event_group' value='' placeholder=''>";
-			echo "</label>";
-			echo "<label class='row'>";
-					echo "<input class='input btn btn-info' type='submit' name='submit' value='Pridať udalosť'>";
-			echo "</label>";
+	echo "<form action='core/forms/admin_form_handler.php' method='post' accept-charset='utf-8' enctype='multipart/form-data'>";
+
+		echo "<div class='form-group'>";
+			echo "<label for='event_name'>Názov udalosti</label>";
+			echo "<input class='form-control' type='text' id='event_name' name='event_name' required>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='event_desc'>Opis udalosti</label>";
+			echo "<textarea class='form-control' id='event_desc' name='event_desc' rows='4' cols='50' required></textarea>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='event_type'>Typ udalosti</label>";
+			echo "<select class='form-control' id='event_type' name='event_type'>";
+				foreach ($typeRows as $typeRow) {
+					echo "<option value='$typeRow[0]'> $typeRow[1] </option>";
+				}
+			echo "</select>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='date_from'>Dátum začiatku</label>";
+			echo "<input class='form-control' type='date' id='date_from' name='date_from'>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='date_to'>Dátum konca</label>";
+			echo "<input class='form-control' type='date' id='date_to' name='date_to'>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='time_from'>Čas začiatku</label>";
+			echo "<input class='form-control' type='time' id='time_from' name='time_from'>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='time_to'>Čas konca</label>";
+			echo "<input class='form-control' type='time' id='time_to' name='time_to'>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='event_place'>Miesto udalosti</label>";
+			echo "<input class='form-control' type='text' id='event_place' name='event_place'>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='event_group'>Skupina, ktorej sa týka udalosť</label>";
+			echo "<input class='form-control' type='number' min='1' max='20' id='event_group' name='event_group'>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='event_area'>Farnosť, ktorej sa týka udalosť</label>";
+			echo "<select class='form-control' id='event_area' name='event_area'>";
+				echo "<option value='N'> Všeobecná </option>";
+				echo "<option value='J'> Poprad-Juh </option>";
+				echo "<option value='M'> Poprad-Mesto </option>";
+			echo "</select>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<input class='form-control' type='file' id='event_img' name='file' placeholder='Pridaj titulný obrázok'>";
+			echo "<label id='event_img_label' for='event_img'>Pridaj titulný obrázok</label>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='submit'></label>";
+			echo "<input class='form-control btn btn-info' type='submit' id='submit' name='submit'  value='Pridať udalosť'>";
+		echo "</div>"; // form-group
+
 	echo "</form>";
 }
 ?>

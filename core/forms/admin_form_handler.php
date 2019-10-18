@@ -35,11 +35,41 @@ function addEvent($dbHandler){
     $time_from = trim($_POST["time_from"]);
     $time_to = trim($_POST["time_to"]);
     $event_place = trim($_POST["event_place"]);
+    $event_group = trim($_POST["event_group"]);
+    $event_area = trim($_POST["event_area"]);
+    $date_created = date("Y-m-d h:i:sa");
+    $event_img = null;
+
+    $name = $_FILES['file']['name'];
+    $target_dir = "../../pictures/";
+    $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+    // Select file type
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+    // Valid file extensions
+    $extensions_arr = array("jpg","jpeg","png","gif");
+
+    // Check extension
+    if(in_array($imageFileType,$extensions_arr) ){
+
+        // Insert record
+        $event_img = $name;
+
+        // Upload file
+        move_uploaded_file($_FILES['file']['tmp_name'], $target_dir.$name);
+
+    }
+
+    $date_from = strlen($date_from) == 0 ? NULL : $date_from;
+    $date_to = strlen($date_to) == 0 ? NULL : $date_to;
+    $time_from = strlen($time_from) == 0 ? NULL : $time_from;
+    $time_to = strlen($time_to) == 0 ? NULL : $time_to;
 
     // send error log to DB to inform about manipulating with DB + all data
-    $query = "INSERT INTO events (event_name, event_desc, event_type, date_from, date_to, time_from, time_to, event_place)
-                VALUES (?,?,?,?,?,?,?,?)";
-    $values = array($event_name, $event_desc, $event_type, $date_from, $date_to, $time_from, $time_to, $event_place);
+    $query = "INSERT INTO events (event_name, event_desc, event_type, date_from, date_to, time_from, time_to, event_place, event_group, event_area, date_created, event_img)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    $values = array($event_name, $event_desc, $event_type, $date_from, $date_to, $time_from, $time_to, $event_place, $event_group, $event_area, $date_created, $event_img);
 
     $result = $connect->run($query, $values);
 
