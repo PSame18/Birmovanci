@@ -57,23 +57,23 @@ if(isset($_SESSION["loginSuccess"])){
         <div class="row">
 
             <!-- logos and title -->
-            <div class="col">
+            <div class="col-md-8">
                 <h1 class="birmovanci-title">BIRMOVANCI</h1>
                 <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
             </div>
 
             <!-- form for login -->
-            <div id="login-form" class="col">
+            <div class="col-md-4">
                 <div class="form">
                     <form action="core/forms/login_handler.php" method="post">
                         <h3 class="prihlasenie">PRIHLÁSENIE</h3>
-                        <label class="row" for="">
+                        <label class="row">
                             <input class="login-name" type="text" name="login" value="" placeholder="Meno" required>
                         </label>
-                        <label class="row" for="">
+                        <label class="row">
                             <input class="login-password" type="password" name="password" value="" placeholder="Heslo" required>
                         </label>
-                        <label class="row" for="">
+                        <label class="row">
                             <input class="login-btn btn btn-info" type="submit" name="submit" value="Prihlásiť sa">
                         </label>
                     </form>

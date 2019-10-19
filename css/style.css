@@ -104,6 +104,19 @@ input.login-password {
     display: inline;
 }
 
+
+/*/////////////////////////// MEDIA QUERIES ///////////////////////////*/
+
+@media all and (max-width: 720px) {
+    img.logos {
+        display: none;
+    }
+}
+
+
+
+
+
 .logout-btn {
     display: block;
     position: absolute;
@@ -125,7 +138,7 @@ input[type=submit] {
     opacity: 0;
 }
 
-#event_img_label{
+#event_img_label {
     padding: 10px;
     background-color: white;
     border: 1px solid black;
