@@ -36,9 +36,10 @@ h1.birmovanci-title {
 }
 
 img.logos {
-    width: 50%;
+    width: 48%;
     max-width: 100%;
     height: auto;
+    margin: 40px 0px 0px 150px;
 }
 
 .form {
@@ -56,18 +57,14 @@ h3.prihlasenie {
     font-size: 30;
     color: #E95570;
     text-align: center;
-}
-
-label.row {
-    margin-left: 0;
-    margin-right: 0;
-    justify-content: center;
+    margin: 20px 0;
 }
 
 input.login-name,
 input.login-password {
-    padding: 5%;
+    padding: 7%;
     border-radius: 50px;
+    margin: 10px 0;
 }
 
 .login-btn {
@@ -78,7 +75,7 @@ input.login-password {
     font-weight: 500;
     font-size: 25;
     margin-top: 20px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     border-radius: 50px;
     border-color: #E95570;
 }
