@@ -45,11 +45,11 @@ $loginSuccess = $_SESSION["loginSuccess"];
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
                 </div>
                 <!-- form for login -->
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="form">
                         <form action="core/forms/login_handler.php" method="post">
                             <h3 class="prihlasenie">PRIHLÁSENIE</h3>
