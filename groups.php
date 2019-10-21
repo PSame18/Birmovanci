@@ -15,6 +15,7 @@ if(!isset($_SESSION["userName"])){
 }
 $users = Users::getInstance();
 $allUsersRows = $users->getAllUsers();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +68,7 @@ $allUsersRows = $users->getAllUsers();
 							<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 								<div class="card-body">
 									<?php
-
+										printGroupCollapse($users);
 									?>
 								</div>
 							</div>
@@ -122,3 +123,67 @@ $allUsersRows = $users->getAllUsers();
 		</PHP>
 	</body>
 </html>
+
+<?php
+
+function printGroupCollapse($users){
+
+	echo "<div class='container'>";
+		echo "<div class='accordion' id='accordionGroups'>";
+
+			for($idx = 1; $idx <= 20; $idx++){
+
+				// CARD
+				echo "<div class='card'>";
+
+					echo "<div class='card-header' id='header" . $idx . "'>";
+						echo "<h2 class='mb-0'>";
+							echo "<button class='btn btn-link' type='button' data-toggle='collapse' data-target='#collapse" . $idx. "' aria-expanded='true' aria-controls='collapse" . $idx . "'>
+											$idx
+							</button>";
+						echo "</h2>";
+					echo "</div>";
+
+					echo "<div id='collapse" . $idx . "' class='collapse' aria-labelledby='header" . $idx . "' data-parent='#accordionGroups'>";
+						echo "<div class='card-body'>";
+							printGroupTable($users, $idx);
+						echo "</div>";
+					echo "</div>";
+
+				echo "</div>"; // CARD
+
+			} // FOR LOOP
+
+
+		echo "</div>";
+	echo "</div>";
+}
+
+
+function printGroupTable($users, $number){
+
+	echo "<table class='table'>";
+		echo "<thead class='thead-light'>";
+    		echo "<tr>";
+      			echo "<th scope='col'>#</th>";
+      			echo "<th scope='col'>Meno a Priezvisko</th>";
+      			echo "<th scope='col'>Počet kreditov</th>";
+    		echo "</tr>";
+  		echo "</thead>";
+  		echo "<tbody>";
+
+  		$groupUsersRows = $users->getUsersByGroup($number);
+
+		foreach ($groupUsersRows as $groupUserRow) {
+			echo "<tr>";
+				echo "<th scope='row'>$groupUserRow[0]</th>";
+				echo "<td>$groupUserRow[1]</td>";
+				echo "<td>$groupUserRow[4]</td>";
+			echo "</tr>";
+		}
+		echo "</tbody>";
+	echo "</table>";
+
+}
+
+?>
