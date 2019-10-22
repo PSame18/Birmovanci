@@ -17,6 +17,10 @@ else if($_POST["submit"] == "Pridať typ"){
     // delete event from DB
     addEventType($dbHandler);
 }
+else if($_POST["submit"] == "Pridať používateľa"){
+    // delete event from DB
+    addUser($dbHandler);
+}
 else{
 
 }
@@ -105,10 +109,29 @@ function addEventType($dbHandler){
     $event_type_name = trim($_POST["event_type_name"]);
     $event_credits = trim($_POST["event_credits"]);
 
-    // send error log to DB to inform about manipulating with DB + all data
     $query = "INSERT INTO event_c_type (event_type_name, event_credits)
                 VALUES (?,?)";
     $values = array($event_type_name, $event_credits);
+
+    $result = $connect->run($query, $values);
+
+}
+
+function addUser($dbHandler){
+
+
+    $connect = $dbHandler->connect();
+
+    $user_name = trim($_POST["user_name"]);
+    $user_login = trim($_POST["user_login"]);
+    $user_pwd = trim($_POST["user_pwd"]);
+    $user_status = trim($_POST["user_status"]);
+    $user_group = trim($_POST["user_group"]);
+    $user_address_area = trim($_POST["user_address_area"]);
+
+    $query = "INSERT INTO users (user_name, user_login, user_pwd, user_status, user_group, user_address_area)
+                VALUES (?,?,?,?,?,?)";
+    $values = array($user_name, $user_login, $user_pwd, $user_status, $user_group, $user_address_area);
 
     $result = $connect->run($query, $values);
 

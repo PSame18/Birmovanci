@@ -36,16 +36,16 @@ $allUsersRows = $users->getAllUsers();
 			<h1>Skupinky</h1>
 			<div>
 				<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-					<a class="navbar-brand" href="domov">Domov</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
 					</span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 						<div class="navbar-nav">
+							<a class="nav-item nav-link" href="domov">Domov</a>
 							<a class="nav-item nav-link" href="udalosti">Udalosti</a>
-							<a class="nav-item nav-link" href="skupinky">Skupinky</a>
-							<a class="nav-item nav-link right-free" href="rodicia">Rodičia</a>
+							<a class="nav-item nav-link active" href="skupinky">Skupinky</a>
+							<a class="nav-item nav-link" href="rodicia">Rodičia</a>
 						</div>
 						<form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
 							<input class="form-control mr-sm-2 btn-info" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
@@ -77,30 +77,14 @@ $allUsersRows = $users->getAllUsers();
 							<div class="card-header" id="headingTwo">
 								<h2 class="mb-0">
 								<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-								Pridať udalosť
+								Pridať používateľa
 								</button>
 								</h2>
 							</div>
 							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 								<div class="card-body">
 									<?php
-
-									?>
-								</div>
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header" id="headingThree">
-								<h2 class="mb-0">
-								<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								Pridať typ udalosti
-								</button>
-								</h2>
-							</div>
-							<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-								<div class="card-body">
-									<?php
-
+										addUser();
 									?>
 								</div>
 							</div>
@@ -183,6 +167,53 @@ function printGroupTable($users, $number){
 		}
 		echo "</tbody>";
 	echo "</table>";
+
+}
+
+function addUser(){
+
+	echo "<form action='core/forms/admin_form_handler.php' method='post' accept-charset='utf-8' enctype='multipart/form-data'>";
+
+		echo "<div class='form-group'>";
+			echo "<label for='user_name'>Meno a Priezvisko</label>";
+			echo "<input class='form-control' type='text' id='user_name' name='user_name' required>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='user_login'>Login</label>";
+			echo "<input class='form-control' type='text' id='user_login' name='user_login' required>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='user_pwd'>Heslo</label>";
+			echo "<input class='form-control' type='text' id='user_pwd' name='user_pwd' required>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='user_status'>Typ uživateľa</label>";
+			echo "<input class='form-control' type='number' id='user_status' name='user_status' required>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='user_group'>Skupina uživateľa</label>";
+			echo "<input class='form-control' type='number' id='user_group' name='user_group'>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='user_adress_area'>Farnosť, do ktorej patrí</label>";
+			echo "<select class='form-control' id='user_adress_area' name='user_adress_area'>";
+				echo "<option value='N'> Všeobecná </option>";
+				echo "<option value='J'> Poprad-Juh </option>";
+				echo "<option value='M'> Poprad-Mesto </option>";
+			echo "</select>";
+		echo "</div>"; // form-group
+
+		echo "<div class='form-group'>";
+			echo "<label for='submit'></label>";
+			echo "<input class='form-control btn btn-info' type='submit' id='submit' name='submit'  value='Pridať používateľa'>";
+		echo "</div>"; // form-group
+
+	echo "</form>";
 
 }
 
