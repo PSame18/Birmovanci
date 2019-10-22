@@ -1,0 +1,96 @@
+/*/////////////////////////// DEFAULT SETTINGS ///////////////////////////*/
+
+/*//////////// BACKGROUND ////////////*/
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    background-color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*/////////////////////////// STYLING THE WEBSITE ///////////////////////////*/
+
+
+/*/////////////////////////// EVENTS PAGE ///////////////////////////*/
+
+div.header {
+    height: 100vh;
+    background: rgb(4, 25, 140);
+    background: -moz-linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+    background: -webkit-linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+    background: linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+}
+
+div.logos-and-title {
+    padding: 2%;
+    margin-top: 15vh;
+}
+
+div.title-and-platform-info {
+    margin: auto;
+}
+
+h1.birmovanci-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+    font-size: 8vw;
+}
+
+section.platform-info {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+img.logos {
+    width: 200;
+    max-width: 100%;
+    height: auto;
+}
+
+.logout-btn {
+    display: block;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+}
+
+/*/////////////////////////// Patrik Schwartz's set-ups ///////////////////////////*/
+
+
+.input {
+    width: 100%;
+}
+
+input[type=submit] {
+    text-align: center;
+}
+
+[type=file] {
+    position: absolute;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+#event_img_label {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+/*/////////////////////////// MEDIA QUERIES ///////////////////////////*/
+
+@media all and (max-width: 720px) {
+    img.logos {
+        display: none;
+    }
+}
