@@ -28,20 +28,6 @@ $title = "Udalosti";
 include_once 'core/header.php';
 ?>
 
-            <!-- logos and title -->
-            <div class="row logos-and-title">
-                <div class="col-8 title-and-platform-info">
-                    <h1 class="birmovanci-title">BIRMOVANCI</h1>
-                    <section class="platform-info">Platforma pre vás a o vás. Nájdete tu všetky dôležité informácie o stretkách, kreditoch, akciách a mnoho ďalšieho.</section>
-                </div>
-                <div class="col-4">
-                    <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
-                </div>
-            </div>
-        </div>
-
-
-
         <!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
         <div id="udalosti" style="padding: 20px; margin: 20px;">
             <div class="container">
@@ -115,7 +101,6 @@ include_once 'core/header.php';
                 </div>
             </div>
         </div>
-    </div>
 
 <?php
 	include 'core/footer.php';

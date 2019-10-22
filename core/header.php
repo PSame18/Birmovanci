@@ -45,3 +45,15 @@
 					</div>
 				</nav>
 			</div>
+
+			<!-- logos and title -->
+            <div class="row logos-and-title">
+                <div class="col-8 title-and-platform-info">
+                    <h1 class="birmovanci-title">BIRMOVANCI</h1>
+                    <section class="platform-info">Platforma pre vás a o vás. Nájdete tu všetky dôležité informácie o stretkách, kreditoch, akciách a mnoho ďalšieho.</section>
+                </div>
+                <div class="col-4">
+                    <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
+                </div>
+            </div>
+        </div>
