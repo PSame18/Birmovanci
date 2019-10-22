@@ -29,13 +29,3 @@ $users = Users::getInstance();
 $allUsersRows = $users->getAllUsers();
 
 ?>
-
-<?php
-$title = "Domov";
-require "core/header.php";
-?>
-
-
-<?php
-require "core/footer.php";
-?>
