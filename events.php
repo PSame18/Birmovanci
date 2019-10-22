@@ -59,7 +59,6 @@ $allUsersRows = $users->getAllUsers();
                     </form>
                 </div>
             </nav>
-<!--            blabla-->
 
             <!-- logos and title -->
             <div class="row logos-and-title">
