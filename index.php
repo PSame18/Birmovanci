@@ -11,6 +11,7 @@
 	<form action="/login" method="post">
     	<input type="submit" value="Prihlásiť sa" />
 	</form>
+	<?php //"Jazyk: " . var_dump($_SERVER['HTTP_ACCEPT_LANGUAGE']); ?>
 </center>
 </body>
 </html>

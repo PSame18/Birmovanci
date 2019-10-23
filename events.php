@@ -242,26 +242,43 @@ function printEventPost($eventRow){
 
 <?php
 function deleteEvents($allEventsRows){
-	echo "<form action='core/forms/admin_form_handler.php' method='post'>";
+	echo "<form action='core/forms/admin_form_handler.php' method='post' accept-charset='utf-8' enctype='multipart/form-data'>";
 		foreach ($allEventsRows as $eventRow) {
-			echo "<label class='row'>";
+			echo "<div class='form-check'";
+				echo "<label class='form-check-label' for='eventId'></label>";
 					$type =  htmlspecialchars($eventRow[1], ENT_NOQUOTES, "UTF-8");
-					echo"<input class='input' type='checkbox' name='eventId[]' value='$eventRow[0]'> $type";
-			echo "</label>";
+					echo"<input class='form-check-input' type='checkbox' id='eventId' name='eventId[]' value='$eventRow[0]'> $type";
+			echo "</div>";
 		}
-		echo "<label class='row'>";
-			echo "<input class='input btn btn-info' type='submit' name='submit' value='Vymazať udalosť'>";
-		echo "</label>";
+
+		echo "<br>";
+
+		echo "<div class='form-group'";
+			echo "<label for='submitDelete'></label>";
+			echo "<input class='form-control btn btn-info' type='submit' id='submitDelete' name='submit' value='Vymazať udalosť'>";
+		echo "</div>";
+
 	echo "</form>";
 }
 ?>
 
 <?php
 function addEventType(){
-	echo "<form action='core/forms/admin_form_handler.php' method='post' accept-charset='utf-8'>";
-			echo "<input type='text' name='event_type_name' value='' placeholder='Názov'>";
-			echo "<input type='number' name='event_credits' value='' placeholder='Počet kreditov'>";
-			echo "<input type='submit' name='submit' value='Pridať typ'>";
+	echo "<form action='core/forms/admin_form_handler.php' method='post' accept-charset='utf-8' enctype='multipart/form-data'>";
+		echo "<div class='form-group'";
+			echo "<label for='event_type_name'>Názov typu udalosti</label>";
+			echo "<input class='form-control' type='text' id='event_type_name' name='event_type_name' required>";
+		echo "</div>";
+
+		echo "<div class='form-group'";
+			echo "<label for='event_credits'>Počet kreditov</label>";
+			echo "<input class='form-control' type='number' id='event_credits' name='event_credits'>";
+		echo "</div>";
+
+		echo "<div class='form-group'";
+			echo "<label for='submitType'></label>";
+			echo "<input class='form-control btn btn-info' type='submit' id='submitType' name='submit' value='Pridať typ'>";
+		echo "</div>";
 	echo "</form>";
 }
 ?>

@@ -127,7 +127,7 @@ function addUser($dbHandler){
     $user_pwd = trim($_POST["user_pwd"]);
     $user_status = trim($_POST["user_status"]);
     $user_group = trim($_POST["user_group"]);
-    $user_address_area = trim($_POST["user_address_area"]);
+    $user_address_area = $_POST["user_address_area"];
 
     $query = "INSERT INTO users (user_name, user_login, user_pwd, user_status, user_group, user_address_area)
                 VALUES (?,?,?,?,?,?)";

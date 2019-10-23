@@ -27,7 +27,7 @@ class DBHandler {
             // create new PDO object only if doesn't exist
             if($this->db == null){
                 // to create a connection string to the database
-                $this->db = new LoggedPDO("mysql:host=$this->servername;dbname=$this->db_name;charset=utf8", $this->username, $this->password);
+                $this->db = new LoggedPDO("mysql:host=$this->servername;dbname=$this->db_name;charset=utf8", $this->username, $this->password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
                 // set the PDO error mode to exception
                 $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
@@ -39,6 +39,12 @@ class DBHandler {
         {
             error_log($e);
         }
+
+        $this->run("SET character_set_results=utf8");
+        $this->run("SET names utf8");
+        $this->run("SET collation_connection=utf8_general_ci");
+        $this->run("SET character_set_client=utf8");
+        $this->run("SET character_set_connection=utf8");
 
     }
 }

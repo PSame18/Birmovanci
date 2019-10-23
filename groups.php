@@ -1,4 +1,7 @@
 <?php
+
+header('Content-Type: text/html; charset=UTF-8');
+
 include_once("core/init.inc.php");
 include_once("core/users.php");
 // kontrola udajov, zabezpecenie
@@ -18,7 +21,7 @@ $allUsersRows = $users->getAllUsers();
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 	<head>
 		<meta charset="UTF-8">
 		<title>Birmovanci - Skupinky</title>
@@ -161,7 +164,7 @@ function printGroupTable($users, $number){
 		foreach ($groupUsersRows as $groupUserRow) {
 			echo "<tr>";
 				echo "<th scope='row'>$groupUserRow[0]</th>";
-				echo "<td>$groupUserRow[1]</td>";
+				echo "<td>".($groupUserRow[1])."</td>";
 				echo "<td>$groupUserRow[4]</td>";
 			echo "</tr>";
 		}
@@ -200,8 +203,8 @@ function addUser(){
 		echo "</div>"; // form-group
 
 		echo "<div class='form-group'>";
-			echo "<label for='user_adress_area'>Farnosť, do ktorej patrí</label>";
-			echo "<select class='form-control' id='user_adress_area' name='user_adress_area'>";
+			echo "<label for='user_address_area'>Farnosť, do ktorej patrí</label>";
+			echo "<select class='form-control' id='user_address_area' name='user_address_area'>";
 				echo "<option value='N'> Všeobecná </option>";
 				echo "<option value='J'> Poprad-Juh </option>";
 				echo "<option value='M'> Poprad-Mesto </option>";
