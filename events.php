@@ -22,7 +22,6 @@ $typeRows = $event_types->getEventTypes();
 $users = Users::getInstance();
 $allUsersRows = $users->getAllUsers();
 ?>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -73,7 +72,7 @@ $allUsersRows = $users->getAllUsers();
 
     </div>
 
-
+    <!-- udalosti -->
     <div class='album py-5 bg-light' id='udalosti'>
         <div class='container-fluid'>
             <div class='row'>
@@ -168,6 +167,15 @@ $allUsersRows = $users->getAllUsers();
     <?php
     	}
     ?>
+
+    <!-- footer -->
+    <footer>
+        <div class="row">
+            <div class="col-11">Farnosti Poprad Mesto a Poprad Juh</div>
+            <div class="col-1"></div>
+        </div>
+    </footer>
+
 
     <PHP>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

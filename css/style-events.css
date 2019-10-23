@@ -21,10 +21,6 @@ h5 {
 
 /*/////////////////////////// EVENTS PAGE ///////////////////////////*/
 
-body#events.body {
-    padding: 2%;
-}
-
 div.header {
     height: 100vh;
     background: rgb(4, 25, 140);
