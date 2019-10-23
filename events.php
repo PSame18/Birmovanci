@@ -52,6 +52,8 @@ $allUsersRows = $users->getAllUsers();
                 		printNavLinks();
                 	?>
                 </div>
+            </div>
+            <div>
                 <form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
                     <input class="form-control mr-sm-2 btn-info logout-btn logout-button-style" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
                 </form>
