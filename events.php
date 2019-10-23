@@ -73,9 +73,26 @@ $allUsersRows = $users->getAllUsers();
     </div>
 
 
+	<div class='album py-5 bg-light' id='udalosti'>
+		<div class='container-fluid'>
+			<div class='row'>
+				<?php
+				foreach ($allEventsRows as $eventRow) {
+					echo "<div class='col-md-4'>";
+						printEventPost($eventRow);
+					echo "</div>";
+				}
+				?>
+			</div>
+		</div>
+	</div>
+
 
     <!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
-    <div id="udalosti" style="padding: 20px; margin: 20px;">
+    <?php
+    	if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 1){
+   	?>
+			<div id="udalosti-admin" style="padding: 20px; margin: 20px;">
         <div class="container">
             <div class="accordion" id="accordionExample">
                 <div class="card">
@@ -147,6 +164,11 @@ $allUsersRows = $users->getAllUsers();
             </div>
         </div>
     </div>
+    <?php
+    	}
+    ?>
+
+
     </div>
     <PHP>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -218,7 +240,7 @@ function printEventPost($eventRow){
 	$image = $eventRow[14];
 	$image_src = "pictures/" . $image;
 
-	echo "<div class='card'>";
+	echo "<div class='card mb-4 shadow-sm'>";
 		if($image != null){
 			echo "<img src='$image_src' class='card-img-top'>";
 		}
