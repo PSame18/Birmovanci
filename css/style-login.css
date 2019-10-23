@@ -77,11 +77,12 @@ input.login-password {
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 50px;
-    border-color: none;
+    border-color: #E95570;
 }
 
 .login-btn:hover {
     background-color: #001065;
+    border-color: #001065;
 }
 
 #wrong-div {

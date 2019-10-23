@@ -65,19 +65,20 @@ img.logos {
     height: auto;
 }
 
-input#logout-button-style {
+.logout-button-style {
     width: 100%;
     background-color: #E95570;
     color: white;
     font-weight: 500;
     font-size: 2vw;
     border-radius: 50px;
-    border-color: none;
+    border-color: #E95570;
     margin: auto;
 }
 
-input#logout-button-style:hover {
+.logout-button-style:hover {
     background-color: #001065;
+    border-color: #001065;
 }
 
 /*/////////////////////////// Patrik Schwartz's set-ups ///////////////////////////*/

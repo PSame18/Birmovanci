@@ -53,7 +53,7 @@ $allUsersRows = $users->getAllUsers();
                 	?>
                 </div>
                 <form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
-                    <input id="logout-button-style" class="form-control mr-sm-2 btn-info logout-btn" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
+                    <input class="form-control mr-sm-2 btn-info logout-btn logout-button-style" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
                 </form>
             </div>
         </nav>
