@@ -389,21 +389,21 @@ function printNavLinks(){
 	// ADMIN
 	if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 1){
 		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
-		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Aktuality</a>";
 		echo "<a class='nav-item nav-link' href='skupinky'>Skupinky</a>";
 		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
 		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
 	}
 	else if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 2){
 		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
-		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Aktuality</a>";
 		echo "<a class='nav-item nav-link' href='skupinky'>Moja skupinka</a>";
 		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
 		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
 	}
 	else if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 4){
 		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
-		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Aktuality</a>";
 		echo "<a class='nav-item nav-link' href='profil'>Profil</a>";
 		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
 		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
