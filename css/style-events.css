@@ -28,6 +28,8 @@ footer {
 
 /*/////////////////////////// EVENTS PAGE ///////////////////////////*/
 
+/*///////////////// Header /////////////////*/
+
 div.header {
     height: 100vh;
     background: rgb(4, 25, 140);
@@ -86,6 +88,16 @@ img.logos {
 .logout-button-style:hover {
     background-color: #001065;
     border-color: #001065;
+}
+
+/*///////////////// Footer /////////////////*/
+
+footer {
+    bottom: 0;
+}
+
+img.fb-logo {
+    width: 50%;
 }
 
 /*/////////////////////////// Patrik Schwartz's set-ups ///////////////////////////*/
