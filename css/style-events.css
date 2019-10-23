@@ -29,6 +29,13 @@ div.header {
     background: linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
 }
 
+nav {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: %;
+    width: 100%;
+}
+
 div.logos-and-title {
     padding: 2%;
     margin-top: 15vh;
@@ -49,6 +56,7 @@ section.platform-info {
     color: white;
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
+    font-size: 2vw;
 }
 
 img.logos {
@@ -62,6 +70,7 @@ img.logos {
     position: absolute;
     right: 0;
     margin-right: 15px;
+    background-color: #E95570;
 }
 
 /*/////////////////////////// Patrik Schwartz's set-ups ///////////////////////////*/

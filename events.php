@@ -40,113 +40,113 @@ $allUsersRows = $users->getAllUsers();
 
 <body>
     <div class="container-fluid header">
-        <h1>Udalosti</h1>
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon">
-                    </span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    	<a class="nav-item nav-link" href="domov">Domov</a>
-                        <a class="nav-item nav-link active" href="udalosti">Udalosti</a>
-                        <a class="nav-item nav-link" href="skupinky">Skupinky</a>
-                        <a class="nav-item nav-link" href="rodicia">Rodičia</a>
-                    </div>
-                    <form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
-                        <input class="form-control mr-sm-2 btn-info" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
-                    </form>
-                </div>
-            </nav>
 
-            <!-- logos and title -->
-            <div class="row logos-and-title">
-                <div class="col-8 title-and-platform-info">
-                    <h1 class="birmovanci-title">BIRMOVANCI</h1>
-                    <section class="platform-info">Platforma pre vás a o vás. Nájdete tu všetky dôležité informácie o stretkách, kreditoch, akciách a mnoho ďalšieho.</section>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="domov">Domov</a>
+                    <a class="nav-item nav-link active" href="udalosti">Udalosti</a>
+                    <a class="nav-item nav-link" href="skupinky">Skupinky</a>
+                    <a class="nav-item nav-link" href="rodicia">Rodičia</a>
                 </div>
-                <div class="col-4">
-                    <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
-                </div>
+                <form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
+                    <input class="form-control mr-sm-2 btn-info logout-button" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
+                </form>
+            </div>
+        </nav>
+
+        <!-- logos and title -->
+        <div class="row logos-and-title">
+            <div class="col-8 title-and-platform-info">
+                <h1 class="birmovanci-title">BIRMOVANCI</h1>
+                <section class="platform-info">Platforma pre vás a o vás. Nájdete tu všetky dôležité informácie o stretkách, kreditoch, akciách a mnoho ďalšieho.</section>
+            </div>
+            <div class="col-4">
+                <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
             </div>
         </div>
 
+    </div>
 
 
-        <!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
-        <div id="udalosti" style="padding: 20px; margin: 20px;">
-            <div class="container">
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Všetky udalosti a akcie
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <?php
+
+    <!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
+    <div id="udalosti" style="padding: 20px; margin: 20px;">
+        <div class="container">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Všetky udalosti a akcie
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <?php
 									foreach ($allEventsRows as $eventRow) {
 										printEventPost($eventRow);
 									}
 									?>
-                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Pridať udalosť
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <?php
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Pridať udalosť
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <?php
 									addEvent($typeRows);
 									?>
-                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Pridať typ udalosti
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <?php
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Pridať typ udalosti
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <?php
 									addEventType();
 									?>
-                            </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Vymazať udalosť
-                                </button>
-                            </h2>
-                        </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <?php
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Vymazať udalosť
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <?php
 									deleteEvents($allEventsRows);
 									?>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <PHP>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
