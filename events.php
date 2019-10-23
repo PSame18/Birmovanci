@@ -48,12 +48,12 @@ $allUsersRows = $users->getAllUsers();
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                	<?php
+                    <?php
                 		printNavLinks();
                 	?>
                 </div>
                 <form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
-                    <input class="form-control mr-sm-2 btn-info logout-button" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
+                    <input id="logout-button-style" class="form-control mr-sm-2 btn-info logout-btn" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
                 </form>
             </div>
         </nav>
@@ -72,26 +72,26 @@ $allUsersRows = $users->getAllUsers();
     </div>
 
 
-	<div class='album py-5 bg-light' id='udalosti'>
-		<div class='container-fluid'>
-			<div class='row'>
-				<?php
+    <div class='album py-5 bg-light' id='udalosti'>
+        <div class='container-fluid'>
+            <div class='row'>
+                <?php
 				foreach ($allEventsRows as $eventRow) {
 					echo "<div class='col-md-4'>";
 						printEventPost($eventRow);
 					echo "</div>";
 				}
 				?>
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- tu sa budu zobrazovat udalosti a moznost pridavania udalosti a editovanie ich -->
     <?php
     	if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 1){
    	?>
-			<div id="udalosti-admin" style="padding: 20px; margin: 20px;">
+    <div id="udalosti-admin" style="padding: 20px; margin: 20px;">
         <div class="container-fluid">
             <div class="accordion" id="accordionExample">
                 <div class="card">
