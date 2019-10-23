@@ -1,8 +1,8 @@
 <?php
 include_once("core/init.inc.php");
-include_once("core/events.php");
-include_once("core/event_types.php");
-include_once("core/users.php");
+include_once("core/classEvents.php");
+include_once("core/classEventTypes.php");
+include_once("core/classUsers.php");
 // kontrola udajov, zabezpecenie
 if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
 	header("Location: login");
@@ -48,10 +48,9 @@ $allUsersRows = $users->getAllUsers();
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="domov">Domov</a>
-                    <a class="nav-item nav-link active" href="udalosti">Udalosti</a>
-                    <a class="nav-item nav-link" href="skupinky">Skupinky</a>
-                    <a class="nav-item nav-link" href="rodicia">Rodičia</a>
+                	<?php
+                		printNavLinks();
+                	?>
                 </div>
                 <form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
                     <input class="form-control mr-sm-2 btn-info logout-button" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
@@ -93,7 +92,7 @@ $allUsersRows = $users->getAllUsers();
     	if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 1){
    	?>
 			<div id="udalosti-admin" style="padding: 20px; margin: 20px;">
-        <div class="container">
+        <div class="container-fluid">
             <div class="accordion" id="accordionExample">
                 <div class="card">
                     <div class="card-header" id="headingOne">
@@ -255,8 +254,9 @@ function printEventPost($eventRow){
     		if($area != null){
     			echo "<h6 class='card-subtitle mb-2 text-muted'>$area</h6>";
     		}
-    		echo "<p class='card-text'>$eventRow[2]</p>";
-    		echo "<a href='#' class='btn btn-primary'>Go somewhere</a>";
+   			echo "<p class='card-text'>" . strlen($eventRow[2]) > 50 ? substr($eventRow[2],0,50) . "..." : $eventRow[2] . "</p>";
+    		//echo "<p class='card-text'>$eventRow[2]</p>";
+    		echo "<a href='event.php?id=$eventRow[0]' class='btn btn-primary'>Viac info</a>";
   		echo "</div>";
 	echo "</div>";
 }
@@ -379,4 +379,35 @@ function addEvent($typeRows){
 
 	echo "</form>";
 }
+?>
+
+<?php
+
+function printNavLinks(){
+
+	// ADMIN
+	if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 1){
+		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='skupinky'>Skupinky</a>";
+		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
+		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
+	}
+	else if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 2){
+		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='skupinky'>Moja skupinka</a>";
+		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
+		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
+	}
+	else if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 4){
+		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='profil'>Profil</a>";
+		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
+		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
+	}
+
+}
+
 ?>

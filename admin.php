@@ -1,8 +1,8 @@
 <?php
 include_once("core/init.inc.php");
-include_once("core/events.php");
-include_once("core/event_types.php");
-include_once("core/users.php");
+include_once("core/classEvents.php");
+include_once("core/classEventTypes.php");
+include_once("core/classUsers.php");
 
 // kontrola udajov, zabezpecenie
 if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){

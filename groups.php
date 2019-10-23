@@ -3,7 +3,7 @@
 header('Content-Type: text/html; charset=UTF-8');
 
 include_once("core/init.inc.php");
-include_once("core/users.php");
+include_once("core/classUsers.php");
 // kontrola udajov, zabezpecenie
 if(isset($_SESSION["loginSuccess"]) && $_SESSION["loginSuccess"] == false){
 	header("Location: login");
