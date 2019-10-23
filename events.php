@@ -172,7 +172,9 @@ $allUsersRows = $users->getAllUsers();
     <footer>
         <div class="row">
             <div class="col-11">Farnosti Poprad Mesto a Poprad Juh</div>
-            <div class="col-1"></div>
+            <div class="col-1">
+                <img alt="Facebook-logo" src="pictures/fb-logo.png">
+            </div>
         </div>
     </footer>
 
