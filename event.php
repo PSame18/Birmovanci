@@ -11,7 +11,7 @@ if(isset($_GET['id']) && $_GET['id'] != null){
 	$id = $_GET['id'];
 }
 else{
-	header("Location: domov");
+	//header("Location: domov");
 }
 
 $eventRow = $events->getEventById($id);

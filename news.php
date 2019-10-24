@@ -16,7 +16,7 @@ $typeRows = $event_types->getEventTypes();
 
 <head>
     <meta charset="UTF-8">
-    <title>Birmovanci - Domov</title>
+    <title>Birmovanci - Aktuality</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- styling -->
     <PHP>
@@ -63,6 +63,8 @@ $typeRows = $event_types->getEventTypes();
         </div>
 
     </div>
+
+    <!-- udalosti -->
 
 	<!-- footer -->
     <footer>

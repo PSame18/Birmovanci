@@ -155,6 +155,7 @@ function printGroupTable($users, $number){
       			echo "<th scope='col'>#</th>";
       			echo "<th scope='col'>Meno a Priezvisko</th>";
       			echo "<th scope='col'>Počet kreditov</th>";
+      			echo "<th scope='col'>Profil</th>";
     		echo "</tr>";
   		echo "</thead>";
   		echo "<tbody>";
@@ -166,6 +167,7 @@ function printGroupTable($users, $number){
 				echo "<th scope='row'>$groupUserRow[0]</th>";
 				echo "<td>".($groupUserRow[1])."</td>";
 				echo "<td>$groupUserRow[4]</td>";
+				echo "<td><a href='profil.php?id=$groupUserRow[0]'>Profil</a></td>";
 			echo "</tr>";
 		}
 		echo "</tbody>";
