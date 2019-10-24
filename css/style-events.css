@@ -92,7 +92,8 @@ img.logos {
 /*///////////////// Body /////////////////*/
 
 div.events-shown {
-    padding: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 div.event-box {}
