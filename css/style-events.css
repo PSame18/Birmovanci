@@ -89,15 +89,13 @@ img.logos {
     border-color: #001065;
 }
 
-/*///////////////// Footer /////////////////*/
+/*///////////////// Body /////////////////*/
 
-footer {
-    bottom: 0;
+div.events-shown {
+    padding: 2%;
 }
 
-img.fb-logo {
-    width: 50%;
-}
+div.event-box {}
 
 /*/////////////////////////// Patrik Schwartz's set-ups ///////////////////////////*/
 
