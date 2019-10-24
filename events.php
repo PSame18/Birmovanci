@@ -75,7 +75,7 @@ $allUsersRows = $users->getAllUsers();
     <!-- udalosti -->
     <div class='album py-5 bg-light' id='udalosti'>
         <div class='container-fluid events-shown'>
-            <div class='row'>
+            <div class='row event-boxes'>
                 <?php
 				foreach ($allEventsRows as $eventRow) {
 					echo "<div class='col-md-4 event-box'>";
