@@ -176,8 +176,18 @@ input[type=submit] {
 
 /*/////////////////////////// MEDIA QUERIES ///////////////////////////*/
 
-@media all and (max-width: 720px) {
+
+/*///////////////// Small devices (landscape phones, less than 768px) /////////////////*/
+
+
+@media (max-width: 768px) {
+
     img.logos {
         display: none;
     }
+
 }
+
+/*///////////////// Extra small devices (portrait phones, less than 576px) /////////////////*/
+
+@media (max-width: 576px) {}
