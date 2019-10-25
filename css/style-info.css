@@ -7,6 +7,7 @@ body {
     font-weight: 400;
     background-color: white;
     margin: auto;
+    color: #001065;
 }
 
 h1,
@@ -107,9 +108,16 @@ h2.title-pages {
     -webkit-text-fill-color: transparent;
 }
 
-
 h2.questions {
     margin-top: 3%;
+}
+
+object {
+    padding-top: 3%;
+}
+
+a.not-showing-pdf {
+    color: #001065;
 }
 
 /*///////////////// Footer /////////////////*/
