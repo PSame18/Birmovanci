@@ -37,7 +37,7 @@ include_once("core/init.inc.php");
                     <a class='nav-item nav-link' href='/'>Domov</a>
                     <a class='nav-item nav-link' href='aktuality'>Aktuality</a>
                     <a class='nav-item nav-link active' href='info'>Informácie a podmienky</a>
-                    <a class='nav-item nav-link' href='#'>Pre rodičov</a>
+                    <a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>
 
                 </div>
             </div>
@@ -80,8 +80,8 @@ include_once("core/init.inc.php");
         </div>
 
         <h2 class="title-pages questions">Otázky na birmovaneckú skúšku</h2>
-        <object data="Birmovka-otázky-a-odpovede-POPRAD.pdf" type="application/pdf" width="60%" height="100%" class="justify-content-center container-fluid otazky-a-odpovede">
-            <p>Pravdepodobne Váš prehliadač nepodporuje zobrazovanie PDF súborov. Nevadí. <a class="not-showing-pdf" href="Birmovka-ot%C3%A1zky-a-odpovede-POPRAD.pdf">Kliknite tu a stiahnite si tento PDF súbor</a>.</p>
+        <object data="birmovka.pdf" type="application/pdf" width="60%" height="100%" class="justify-content-center container-fluid otazky-a-odpovede">
+            <p>Pravdepodobne Váš prehliadač nepodporuje zobrazovanie PDF súborov. Nevadí. <a class="not-showing-pdf" href="birmovka.pdf">Kliknite tu a stiahnite si tento PDF súbor</a>.</p>
         </object>
     </main>
 

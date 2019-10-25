@@ -124,7 +124,7 @@ $parts1 = explode(':', $eventRow[6]);
     		}
    			echo "<p class='card-text'>" . strlen($eventRow[2]) > 50 ? substr($eventRow[2],0,50) . "..." : $eventRow[2] . "</p>";
     		//echo "<p class='card-text'>$eventRow[2]</p>";
-    		echo "<a href='event.php?id=$eventRow[0]' class='btn btn-primary'>Viac info</a>";
+
   		echo "</div>";
 	echo "</div>";
 
