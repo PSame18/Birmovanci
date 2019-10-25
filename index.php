@@ -76,7 +76,7 @@ $typeRows = $event_types->getEventTypes();
     <main class="container-fluid body-main">
         <h2 class="title-pages">Najnovšie</h2>
         <div class="row">
-            <div class="col-3">
+            <div class="col-sm-3">
                 <div class="card card-border">
                     <div class="card-body card-padding">
                         <h3 class="card-title">Mikulášske balíčky</h3>
@@ -87,7 +87,7 @@ $typeRows = $event_types->getEventTypes();
                 </div>
             </div>
             <hr>
-            <div class="col-3">
+            <div class="col-sm-3">
                 <div class="card card-border">
                     <div class="card-body card-padding">
                         <h3 class="card-title">Mikulášske balíčky</h3>
@@ -98,7 +98,7 @@ $typeRows = $event_types->getEventTypes();
                 </div>
             </div>
             <hr>
-            <div class="col-3">
+            <div class="col-sm-3">
                 <div class="card card-border">
                     <div class="card-body card-padding">
                         <h3 class="card-title">Mikulášske balíčky</h3>
