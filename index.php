@@ -79,9 +79,10 @@ $typeRows = $event_types->getEventTypes();
             <div class="col-3">
                 <div class="card card-border">
                     <div class="card-body card-padding">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h3 class="card-title">Mikulášske balíčky</h3>
+                        <h5 class="card-date">06.12.2019</h5>
+                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
+                        <a href="#" class="btn btn-primary">Čítať viac</a>
                     </div>
                 </div>
             </div>
@@ -89,9 +90,10 @@ $typeRows = $event_types->getEventTypes();
             <div class="col-3">
                 <div class="card card-border">
                     <div class="card-body card-padding">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h3 class="card-title">Mikulášske balíčky</h3>
+                        <h5 class="card-date">06.12.2019</h5>
+                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
+                        <a href="#" class="btn btn-primary">Čítať viac</a>
                     </div>
                 </div>
             </div>
@@ -99,9 +101,10 @@ $typeRows = $event_types->getEventTypes();
             <div class="col-3">
                 <div class="card card-border">
                     <div class="card-body card-padding">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h3 class="card-title">Mikulášske balíčky</h3>
+                        <h5 class="card-date">06.12.2019</h5>
+                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
+                        <a href="#" class="btn btn-primary">Čítať viac</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +122,10 @@ $typeRows = $event_types->getEventTypes();
     </footer>
 
     <PHP>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+            h5
+
+        </script>
     </PHP>
     <PHP>
         <script src="js/inputLabelChanger.js"></script>

@@ -93,6 +93,7 @@ img.logos {
 
 main.body-main {
     padding: 2.5%;
+    color: #001065;
 }
 
 h2.title-pages {
@@ -106,6 +107,7 @@ h2.title-pages {
 
 div.card-border {
     border: transparent;
+    color: #001065;
 }
 
 div.card-padding {
@@ -116,6 +118,16 @@ div.card-padding {
 hr {
     border-left: 3px solid #001065;
     height: auto;
+}
+
+h3.card-title {
+    font-weight: 700;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h5.card-date {
+    margin-bottom: 3vh;
 }
 
 
