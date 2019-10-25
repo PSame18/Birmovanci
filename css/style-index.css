@@ -91,10 +91,33 @@ img.logos {
 
 /*///////////////// Body /////////////////*/
 
-div.events-shown {
-    padding-left: 3%;
-    padding-right: 3%;
+main.body-main {
+    padding: 2.5%;
 }
+
+h2.title-pages {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3vw;
+    background: -webkit-linear-gradient(rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 25%, rgba(126, 63, 127, 1) 50%, rgba(233, 84, 114, 1) 75%, rgba(246, 106, 79, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+div.card-border {
+    border: transparent;
+}
+
+div.card-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+hr {
+    border-left: 3px solid #001065;
+    height: auto;
+}
+
 
 /*///////////////// Footer /////////////////*/
 a.footer-links {

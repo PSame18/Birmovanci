@@ -23,13 +23,20 @@ $typeRows = $event_types->getEventTypes();
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </PHP>
     <PHP>
-        <link rel="stylesheet" type="text/css" href="css/style-events.css">
+        <link rel="stylesheet" type="text/css" href="css/style-index.css">
+    </PHP>
+    <PHP>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap" rel="stylesheet">
+    </PHP>
+    <PHP>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap" rel="stylesheet">
     </PHP>
 </head>
 
 <body id="events-body">
     <div class="container-fluid header">
 
+        <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
@@ -38,9 +45,9 @@ $typeRows = $event_types->getEventTypes();
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class='nav-item nav-link active' href='/'>Domov</a>
-					<a class='nav-item nav-link' href='aktuality'>Aktuality</a>
-					<a class='nav-item nav-link' href='#'>Informácie a podmienky</a>
-					<a class='nav-item nav-link' href='#'>Pre rodičov</a>
+                    <a class='nav-item nav-link' href='aktuality'>Aktuality</a>
+                    <a class='nav-item nav-link' href='#'>Informácie a podmienky</a>
+                    <a class='nav-item nav-link' href='#'>Pre rodičov</a>
 
                 </div>
             </div>
@@ -64,16 +71,54 @@ $typeRows = $event_types->getEventTypes();
 
     </div>
 
-	<!-- footer -->
+
+    <!-- main -->
+    <main class="container-fluid body-main">
+        <h2 class="title-pages">Najnovšie</h2>
+        <div class="row">
+            <div class="col-3">
+                <div class="card card-border">
+                    <div class="card-body card-padding">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-3">
+                <div class="card card-border">
+                    <div class="card-body card-padding">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-3">
+                <div class="card card-border">
+                    <div class="card-body card-padding">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- footer -->
     <footer>
         <div class="row footer-div">
             <div class="col-11">
-                Farnosti Poprad Mesto a Poprad Juh
+                Farnosti <a class="footer-links" href="https://www.rkcpoprad.sk">Poprad Mesto</a> a <a class="footer-links" href="http://www.rkcpopradjuh.sk">Poprad Juh</a>
             </div>
         </div>
     </footer>
 
-	<PHP>
+    <PHP>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     </PHP>
     <PHP>

@@ -35,6 +35,12 @@ $allUsersRows = $users->getAllUsers();
     <PHP>
         <link rel="stylesheet" type="text/css" href="css/style-events.css">
     </PHP>
+    <PHP>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap" rel="stylesheet">
+    </PHP>
+    <PHP>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,500&display=swap" rel="stylesheet">
+    </PHP>
 </head>
 
 <body id="events-body">
@@ -172,7 +178,7 @@ $allUsersRows = $users->getAllUsers();
     <footer>
         <div class="row footer-div">
             <div class="col-11">
-                Farnosti Poprad Mesto a Poprad Juh
+                Farnosti <a class="footer-links" href="https://www.rkcpoprad.sk">Poprad Mesto</a> a <a class="footer-links" href="http://www.rkcpopradjuh.sk">Poprad Juh</a>
             </div>
         </div>
     </footer>
