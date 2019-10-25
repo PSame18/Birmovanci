@@ -82,7 +82,7 @@ $typeRows = $event_types->getEventTypes();
                         <h3 class="card-title">Mikulášske balíčky</h3>
                         <h5 class="card-date">06.12.2019</h5>
                         <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary">Čítať viac</a>
+                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ $typeRows = $event_types->getEventTypes();
                         <h3 class="card-title">Mikulášske balíčky</h3>
                         <h5 class="card-date">06.12.2019</h5>
                         <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary">Čítať viac</a>
+                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@ $typeRows = $event_types->getEventTypes();
                         <h3 class="card-title">Mikulášske balíčky</h3>
                         <h5 class="card-date">06.12.2019</h5>
                         <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary">Čítať viac</a>
+                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
                     </div>
                 </div>
             </div>
