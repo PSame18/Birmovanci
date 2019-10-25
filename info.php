@@ -14,7 +14,7 @@ include_once("core/init.inc.php");
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </PHP>
     <PHP>
-        <link rel="stylesheet" type="text/css" href="css/style-index.css">
+        <link rel="stylesheet" type="text/css" href="css/style-info.css">
     </PHP>
     <PHP>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap" rel="stylesheet">
@@ -65,7 +65,7 @@ include_once("core/init.inc.php");
     <!-- main -->
     <main class="container-fluid body-main">
         <h2 class="title-pages">Podmienky</h2>
-        <div class="col justify-content-center">
+        <div class="col-6">
             1. Účasť na nedeľnej sv. omši, prikázaných sviatkoch a birmovaneckej sv. omši.
             <br><br>
             2. Mesačná sv. spoveď v určenom čase.
@@ -79,7 +79,7 @@ include_once("core/init.inc.php");
             6. Odporúčanie katechétu.
         </div>
 
-        <h2 class="title-pages">Otázky na skúšky</h2>
+        <h2 class="title-pages questions">Otázky na birmovaneckú skúšku</h2>
     </main>
 
     <!-- footer -->
