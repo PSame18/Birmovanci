@@ -62,8 +62,25 @@ include_once("core/init.inc.php");
     </div>
 
 
-	<!-- main -->
+    <!-- main -->
+    <main class="container-fluid body-main">
+        <h2 class="title-pages">Podmienky</h2>
+        <div class="col justify-content-center">
+            1. Účasť na nedeľnej sv. omši, prikázaných sviatkoch a birmovaneckej sv. omši.
+            <br><br>
+            2. Mesačná sv. spoveď v určenom čase.
+            <br><br>
+            3. Účasť na birmovaneckých stretnutiach (je povolená len jedna neúčasť na stretnutí, okrem vážneho dôvodu, napr. choroby – ospravedlnená zo strany rodiča).
+            <br><br>
+            4. Úspešné zvládnutie birmovaneckej skúšky.
+            <br><br>
+            5. Získanie stanoveného počtu kreditov (100).
+            <br><br>
+            6. Odporúčanie katechétu.
+        </div>
 
+        <h2 class="title-pages">Otázky na skúšky</h2>
+    </main>
 
     <!-- footer -->
     <footer>
