@@ -40,28 +40,50 @@ $allUsersRows = $users->getAllUsers();
 			<link rel="stylesheet" type="text/css" href="css/style-events.css">
 		</PHP>
 	</head>
-	<body>
-		<div class="container-fluid">
-			<div>
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-						<div class="navbar-nav">
-							<a class="nav-item nav-link active" href="domov">Domov</a>
-							<a class="nav-item nav-link" href="udalosti">Udalosti</a>
-							<a class="nav-item nav-link" href="skupinky">Skupinky</a>
-							<a class="nav-item nav-link" href="rodicia">Rodičia</a>
-						</div>
-						<form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
-							<input class="form-control mr-sm-2 btn-info" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
-						</form>
-					</div>
-				</nav>
-			</div>
+	<body id="events-body">
+	    <div class="container-fluid header">
 
-		</div>
+	        <nav class="navbar navbar-expand-lg navbar-dark">
+	            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+	                <span class="navbar-toggler-icon">
+	                </span>
+	            </button>
+	            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+	                <div class="navbar-nav">
+	                    <?php
+	                		printNavLinks();
+	                	?>
+	                </div>
+	            </div>
+	            <div>
+	                <form class="form-inline my-2 my-lg-0" action="core/forms/logout_handler.php" method="post">
+	                    <input class="form-control mr-sm-2 btn-info logout-btn logout-button-style" type="submit" aria-label="Odhlásiť sa" name="logout" value="Odhlásiť sa">
+	                </form>
+	            </div>
+	        </nav>
+
+	        <!-- logos and title -->
+	        <div class="row logos-and-title">
+	            <div class="col-8 title-and-platform-info">
+	                <h1 class="birmovanci-title">BIRMOVANCI</h1>
+	                <section class="platform-info">Platforma pre vás a o vás. Nájdete tu všetky dôležité informácie o stretkách, kreditoch, akciách a mnoho ďalšieho.</section>
+	            </div>
+	            <div class="col-4">
+	                <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
+	            </div>
+	        </div>
+
+	    </div>
+
+		<!-- footer -->
+	    <footer>
+	        <div class="row footer-div">
+	            <div class="col-11">
+	                Farnosti <a class="footer-links" href="https://www.rkcpoprad.sk">Poprad Mesto</a> a <a class="footer-links" href="http://www.rkcpopradjuh.sk">Poprad Juh</a>
+	            </div>
+	        </div>
+	    </footer>
+
 		<PHP>
 			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		</PHP>
@@ -73,3 +95,40 @@ $allUsersRows = $users->getAllUsers();
 		</PHP>
 	</body>
 </html>
+
+<?php
+
+function printNavLinks(){
+
+	// ADMIN
+	if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 1){
+		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='skupinky'>Skupinky</a>";
+		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
+		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
+	}
+	else if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 2){
+		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='skupinky'>Moja skupinka</a>";
+		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
+		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
+	}
+	else if(isset($_SESSION["userStatus"]) && $_SESSION["userStatus"] == 4){
+		echo "<a class='nav-item nav-link active' href='domov'>Domov</a>";
+		echo "<a class='nav-item nav-link' href='udalosti'>Udalosti</a>";
+		echo "<a class='nav-item nav-link' href='profil'>Profil</a>";
+		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
+		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
+	}
+	else{
+		echo "<a class='nav-item nav-link active' href='/'>Domov</a>";
+		echo "<a class='nav-item nav-link' href='aktuality'>Aktuality</a>";
+		echo "<a class='nav-item nav-link' href='info'>Informácie a podmienky";
+		echo "<a class='nav-item nav-link' href='rodicia'>Pre rodičov</a>";
+	}
+
+}
+
+?>
