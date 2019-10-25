@@ -46,7 +46,7 @@ $typeRows = $event_types->getEventTypes();
                 <div class="navbar-nav">
                     <a class='nav-item nav-link active' href='/'>Domov</a>
                     <a class='nav-item nav-link' href='aktuality'>Aktuality</a>
-                    <a class='nav-item nav-link' href='#'>Informácie a podmienky</a>
+                    <a class='nav-item nav-link' href='info'>Informácie a podmienky</a>
                     <a class='nav-item nav-link' href='#'>Pre rodičov</a>
 
                 </div>
