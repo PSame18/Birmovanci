@@ -23,7 +23,7 @@ $typeRows = $event_types->getEventTypes();
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </PHP>
     <PHP>
-        <link rel="stylesheet" type="text/css" href="css/style-events.css">
+        <link rel="stylesheet" type="text/css" href="css/style-aktuality.css">
     </PHP>
     <PHP>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap" rel="stylesheet">
@@ -70,7 +70,29 @@ $typeRows = $event_types->getEventTypes();
 
     </div>
 
-    <!-- udalosti -->
+    <!-- main -->
+    <main class="container-fluid body-main">
+        <h2 class="title-pages">Aktuality</h2>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card card-border">
+                    <div class="card-body card-padding">
+                        <h3 class="card-title">Mikulášske balíčky</h3>
+                        <h5 class="card-date">06.12.2019</h5>
+                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
+                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+
+            </div>
+
+        </div>
+
+    </main>
 
     <!-- footer -->
     <footer>
