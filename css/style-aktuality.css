@@ -94,6 +94,7 @@ img.logos {
 
 main.body-main {
     padding: 3%;
+    padding-bottom: 0;
     color: #001065;
 }
 
@@ -142,9 +143,31 @@ a.read-more-button:hover {
     border-color: #001065;
 }
 
+img.image-news {
+    width: 65%;
+    height: auto;
+}
+
 hr {
     border: solid #001065;
+    border-radius: 50px;
     height: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+ul.pagination {
+    padding-top: 5%;
+}
+
+a.page-link {
+    color: #001065;
+    border: none;
+}
+
+a.page-link:hover {
+    color: #001065;
+    background-color: white;
 }
 
 /*///////////////// Footer /////////////////*/

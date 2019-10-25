@@ -85,12 +85,68 @@ $typeRows = $event_types->getEventTypes();
                     </div>
                 </div>
             </div>
-
             <div class="col-6">
-
+                <img class="image-news float-right" src="pictures/mikulaske-balicky.png" alt="Mikulášske balíčky">
             </div>
-
         </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card card-border">
+                    <div class="card-body card-padding">
+                        <h3 class="card-title">Mikulášske balíčky</h3>
+                        <h5 class="card-date">06.12.2019</h5>
+                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
+                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <img class="image-news float-right" src="pictures/mikulaske-balicky.png" alt="Mikulášske balíčky">
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="card card-border">
+                    <div class="card-body card-padding">
+                        <h3 class="card-title">Mikulášske balíčky</h3>
+                        <h5 class="card-date">06.12.2019</h5>
+                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
+                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <img class="image-news float-right" src="pictures/mikulaske-balicky.png" alt="Mikulášske balíčky">
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- pagination -->
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
     </main>
 
