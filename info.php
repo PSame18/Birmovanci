@@ -80,6 +80,9 @@ include_once("core/init.inc.php");
         </div>
 
         <h2 class="title-pages questions">Otázky na birmovaneckú skúšku</h2>
+        <div id="otazky" class="pdf-object-container">
+
+        </div>
     </main>
 
     <!-- footer -->
@@ -102,6 +105,9 @@ include_once("core/init.inc.php");
     </PHP>
     <PHP>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </PHP>
+    <PHP>
+        <script src="js/pdfViewer.js"></script>
     </PHP>
 </body>
 
