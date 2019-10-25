@@ -6,7 +6,7 @@ include_once("core/classUsers.php");
 // kontrola udajov, zabezpecenie
 
 $events = Events::getInstance();
-$allEventsRows = $events->getAllEvents();
+$currentEvents = $events->getCurrentEvents();
 $event_types = EventTypes::getInstance();
 $typeRows = $event_types->getEventTypes();
 
@@ -76,38 +76,27 @@ $typeRows = $event_types->getEventTypes();
     <main class="container-fluid body-main">
         <h2 class="title-pages">Najnovšie</h2>
         <div class="row">
-            <div class="col-3">
-                <div class="card card-border">
-                    <div class="card-body card-padding">
-                        <h3 class="card-title">Mikulášske balíčky</h3>
-                        <h5 class="card-date">06.12.2019</h5>
-                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="col-3">
-                <div class="card card-border">
-                    <div class="card-body card-padding">
-                        <h3 class="card-title">Mikulášske balíčky</h3>
-                        <h5 class="card-date">06.12.2019</h5>
-                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="col-3">
-                <div class="card card-border">
-                    <div class="card-body card-padding">
-                        <h3 class="card-title">Mikulášske balíčky</h3>
-                        <h5 class="card-date">06.12.2019</h5>
-                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
-                    </div>
-                </div>
-            </div>
+
+            <?php
+            $id = 1;
+            foreach ($currentEvents as $currentEvent) {
+                echo "<div class='col-3'>";
+                    echo "<div class='card card-border'>";
+                        echo "<div class='card-body card-padding'>";
+                            echo "<h3 class='card-title'>". $currentEvent[1] ."</h3>";
+                            echo "<h5 class='card-date'>". $currentEvent[4] ."</h5>";
+                            echo "<p class='card-text'>". $currentEvent[2] ."</p>";
+                            echo "<a href='#' class='btn btn-primary read-more-button'>Čítať viac</a>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+                if($id < 3){
+                    echo "<hr>";
+                }
+                $id++;
+            }
+            ?>
+
         </div>
     </main>
 
