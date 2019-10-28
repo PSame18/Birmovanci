@@ -80,7 +80,7 @@ include_once("core/init.inc.php");
         </div>
 
         <h2 class="title-pages questions">Otázky na birmovaneckú skúšku</h2>
-        <object data="birmovka.pdf" type="application/pdf" width="60%" height="100%" class="justify-content-center container-fluid otazky-a-odpovede">
+        <object data="Birmovka_otázky_a_odpovede_POPRAD.pdf" type="application/pdf" width="60%" height="100%" class="justify-content-center container-fluid otazky-a-odpovede">
             <p>Pravdepodobne Váš prehliadač nepodporuje zobrazovanie PDF súborov. Nevadí. <a class="not-showing-pdf" href="birmovka.pdf">Kliknite tu a stiahnite si tento PDF súbor</a>.</p>
         </object>
     </main>
