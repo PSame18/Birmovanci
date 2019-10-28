@@ -15,10 +15,35 @@ class Events extends DBHandler{
         return self::$instance;
     }
 
-    public function getAllEvents(){
+    public function getNumberOfEvents(){
         try{
 
             // send error log to DB to inform about manipulating with DB + all data
+            $query = "SELECT COUNT(*)
+                        FROM events e
+                        LEFT JOIN event_c_type t ON e.event_type = t.event_type_id
+                        ORDER BY e.date_created DESC;";
+            $values = array();
+
+            // get data in an indexed array
+            // select all data from the events table
+            $stm = $this->connect()->run($query);
+
+            // pass the PDO:FETCH_NUM style to the fetchAll() method
+            $rows = $stm->fetchAll(PDO::FETCH_NUM);
+
+            return $rows;
+
+        }catch(Exception $e)
+        {
+            error_log($e);
+        }
+    }
+
+    public function getAllEvents($offset = null, $noOfRecordsPerPage = null){
+
+        if($offset == null || $noOfRecordsPerPage == null){
+
             $query = "SELECT e.event_id, e.event_name, e.event_desc, e.event_type,
                         DATE_FORMAT(e.date_from, '%e.%c.%Y') AS date_from,
                         DATE_FORMAT(e.date_to, '%e.%c.%Y') AS date_to,
@@ -30,9 +55,27 @@ class Events extends DBHandler{
                         ORDER BY e.date_created DESC;";
             $values = array();
 
+        }
+        else{
+
+            $query = "SELECT e.event_id, e.event_name, e.event_desc, e.event_type,
+                        DATE_FORMAT(e.date_from, '%e.%c.%Y') AS date_from,
+                        DATE_FORMAT(e.date_to, '%e.%c.%Y') AS date_to,
+                        e.time_from, e.time_to,
+                        e.event_place, e.event_group, e.event_area, e.date_created,
+                        t.event_type_name, t.event_credits, e.event_img
+                        FROM events e
+                        LEFT JOIN event_c_type t ON e.event_type = t.event_type_id
+                        ORDER BY e.date_created DESC LIMIT ?, ?;";
+            $values = array($offset, $noOfRecordsPerPage);
+
+        }
+
+        try{
+
             // get data in an indexed array
             // select all data from the events table
-            $stm = $this->connect()->run($query);
+            $stm = $this->connect()->run($query, $values);
 
             // pass the PDO:FETCH_NUM style to the fetchAll() method
             $rows = $stm->fetchAll(PDO::FETCH_NUM);

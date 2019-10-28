@@ -3,12 +3,30 @@ include_once("core/init.inc.php");
 include_once("core/classEvents.php");
 include_once("core/classEventTypes.php");
 include_once("core/classUsers.php");
-// kontrola udajov, zabezpecenie
+
+// for pagination
+if (isset($_GET['pageno'])) {
+    $pageno = $_GET['pageno'];
+} else {
+    $pageno = 1;
+}
+
+// to change number of news per 1 page
+$noOfRecordsPerPage = 5;
+$offset = ($pageno-1) * $noOfRecordsPerPage;
 
 $events = Events::getInstance();
-$allEventsRows = $events->getAllEvents();
+$amountSqlResult = $events->getNumberOfEvents();
+$amountOfEvents = $amountSqlResult[0];
+
+$totalPages = ceil(amountOfEvents / $noOfRecordsPerPage);
+
+$allEventsRows = $events->getAllEvents($offset, $noOfRecordsPerPage);
+
 $event_types = EventTypes::getInstance();
 $typeRows = $event_types->getEventTypes();
+
+
 
 ?>
 
@@ -74,77 +92,47 @@ $typeRows = $event_types->getEventTypes();
     <main class="container-fluid body-main">
         <h2 class="title-pages">Aktuality</h2>
 
-        <div class="row">
-            <div class="col-6">
-                <div class="card card-border">
-                    <div class="card-body card-padding">
-                        <h3 class="card-title">Mikulášske balíčky</h3>
-                        <h5 class="card-date">06.12.2019</h5>
-                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <img class="image-news float-right" src="pictures/mikulaske-balicky.png" alt="Mikulášske balíčky">
-            </div>
-        </div>
+        <?php
 
-        <hr>
+        foreach ($allEventsRows as $eventRow) {
 
-        <div class="row">
-            <div class="col-6">
-                <div class="card card-border">
-                    <div class="card-body card-padding">
-                        <h3 class="card-title">Mikulášske balíčky</h3>
-                        <h5 class="card-date">06.12.2019</h5>
-                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <img class="image-news float-right" src="pictures/mikulaske-balicky.png" alt="Mikulášske balíčky">
-            </div>
-        </div>
+            $image = $eventRow[14];
+            $image_src = "pictures/" . $image;
 
-        <hr>
+            echo "<div class='row'>";
+                echo "<div class='col-6'>";
+                    echo "<div class='card card-border'>";
+                        echo "<div class='card-body card-padding'>";
+                            echo "<h3 class='card-title'>". $eventRow[1] ."</h3>";
+                            echo "<h5 class='card-date'>". $eventRow[4] ."</h5>";
+                            echo "<p class='card-text'>". $eventRow[2] ."</p>";
+                            echo "<a href='#' class='btn btn-primary read-more-button'>Čítať viac</a>";
+                        echo "</div>";
+                    echo "</div>";
+                echo "</div>";
+                echo "<div class='col-6'>";
+                    if($image != null || $image != ""){
+                        echo "<img class='image-news float-right' src='". $image_src ."' alt=''>";
+                    }
+                echo "</div>";
+            echo "</div>";
 
-        <div class="row">
-            <div class="col-6">
-                <div class="card card-border">
-                    <div class="card-body card-padding">
-                        <h3 class="card-title">Mikulášske balíčky</h3>
-                        <h5 class="card-date">06.12.2019</h5>
-                        <p class="card-text">Pozývame vás na rozdávanie mikulášskych balíčkov starším ľudom. Môžete nazbierať kredity. Hláste sa na fare v Poprade - Juhu.</p>
-                        <a href="#" class="btn btn-primary read-more-button">Čítať viac</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6">
-                <img class="image-news float-right" src="pictures/mikulaske-balicky.png" alt="Mikulášske balíčky">
-            </div>
-        </div>
+            echo "<hr>";
 
-        <hr>
+        }
+
+        ?>
 
         <!-- pagination -->
 
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
+                <?php
+                    for($page = 1; $page <= $totalPages+1; $page++){
+                        echo "<li class='page-item'><a class='page-link' href='?pageno="
+                        .$page."'>".$page."</a></li>";
+                    }
+                ?>
             </ul>
         </nav>
 

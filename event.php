@@ -32,6 +32,9 @@ $eventRow = $events->getEventById($id);
         <link rel="stylesheet" type="text/css" href="css/style-index.css">
     </PHP>
     <PHP>
+        <link rel="stylesheet" type="text/css" href="css/style-gallery.css">
+    </PHP>
+    <PHP>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap" rel="stylesheet">
     </PHP>
     <PHP>
