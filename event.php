@@ -11,7 +11,7 @@ if(isset($_GET['id']) && $_GET['id'] != null){
 	$id = $_GET['id'];
 }
 else{
-	//header("Location: domov");
+	header("Location: domov");
 }
 
 $eventRow = $events->getEventById($id);
@@ -30,9 +30,6 @@ $eventRow = $events->getEventById($id);
     </PHP>
     <PHP>
         <link rel="stylesheet" type="text/css" href="css/style-index.css">
-    </PHP>
-    <PHP>
-        <link rel="stylesheet" type="text/css" href="css/style-gallery.css">
     </PHP>
     <PHP>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap" rel="stylesheet">
@@ -78,6 +75,13 @@ $eventRow = $events->getEventById($id);
 
     </div>
 
+    <!-- main -->
+    <?php
+    echo "<main class='container-fluid body-main'>";
+        printEventDetail($eventRow);
+    echo "</main>";
+    ?>
+
     <!-- footer -->
     <footer>
         <div class="row footer-div">
@@ -106,37 +110,77 @@ $eventRow = $events->getEventById($id);
 
 <?php
 
-function printEventDetail(){
+function printEventDetail($eventRow){
 
-	$parts1 = explode(':', $eventRow[6]);
-	$parts2 = explode(':', $eventRow[7]);
+    // cas zaciatku udalosti
+    if($eventRow[6] != null){
+        $parts1 = explode(':', $eventRow[6]);
+        $timeStart  = "$parts1[0]:$parts1[1]";
+    }
+    else{
+        $timeStart = null;
+    }
 
-	// ak sa datumy rovnaju, zobrazi sa len jeden
-	if($eventRow[4] == $eventRow[5]){
+    // cas konca udalosti
+    if($eventRow[7] != null){
+        $parts2 = explode(':', $eventRow[7]);
+        $timeEnd  = "$parts2[0]:$parts2[1]";
+    }
+    else{
+        $timeEnd = null;
+    }
 
-		// datum od nie je rovny NULL
-		if($eventRow[4] != null){
-			$date = $eventRow[4];
-		}
-		else{
-			$date = null;
-		}
+    //////////
 
-		// cas od nie je rovny NULL
-		if($eventRow[6] != null){
-			$time  = "$parts1[0]:$parts1[1]";
-		}
-		else{
-			$time = null;
-		}
+    // datum a cas zaciatku udalosti
+    if($eventRow[4] != null){
+        $start = $eventRow[4];
+    }
+    if($timeStart != null){
+        $start = $start . " " . $timeStart;
+    }
 
-	}
-	// datumy sa nerovnaju, zobrazia sa oba
-	else{
-		$date = $eventRow[4] . " - " . $eventRow[5];
-		$time  = "$parts1[0]:$parts1[1] - $parts2[0]:$parts2[1]";
-	}
+    // datum a cas konca udalosti
+    if($eventRow[5] != null){
+        if($eventRow[4] != $eventRow[5]){
+            $end = $eventRow[5];
+        }
+        else{
+            $end = null;
+        }
+    }
+    if($timeEnd != null){
+        if($end === null && $timeStart != $timeEnd){
+            $end = $end . " " . $timeEnd;
+        }
+        else{
+            $end = null;
+        }
+    }
+    else{
+        $end = null;
+    }
 
+    //////////
+
+    if($end != null){
+        $datetime = $start . " - " . $end;
+    }
+    else{
+        $datetime = $start;
+    }
+
+	//////////
+
+    // miesto udalosti
+    if($eventRow[8] != null){
+        $place = ", " . $eventRow[8];
+    }
+    else{
+        $place = "";
+    }
+
+    // skupina udalosti
 	if($eventRow[9] != 0){
 		$group = "Pre skupinu: " . $eventRow[9];
 	}
@@ -144,6 +188,7 @@ function printEventDetail(){
 		$group = null;
 	}
 
+    // farnost udalosti
 	if($eventRow[10] != 'N'){
 		if($eventRow[10] == 'J'){
 			$area = "Pre farnosť Poprad-Juh";
@@ -153,31 +198,35 @@ function printEventDetail(){
 		}
 	}
 	else{
-		$area = null;
+		$area = "";
 	}
 
 	$image = $eventRow[14];
 	$image_src = "pictures/" . $image;
 
-	echo "<div class='card mb-4 shadow-sm'>";
-		if($image != null){
-			echo "<img src='$image_src' class='card-img-top'>";
-		}
-  		echo "<div class='card-body'>";
-    		echo "<h5 class='card-title'>$eventRow[1]</h5>";
-    		if($date != null && $time != null){
-    			echo "<h6 class='card-subtitle mb-2 text-muted'>$date, $time, $eventRow[8]</h6>";
-    		}
-    		if($group != null){
-    			echo "<h6 class='card-subtitle mb-2 text-muted'>$group</h6>";
-    		}
-    		if($area != null){
-    			echo "<h6 class='card-subtitle mb-2 text-muted'>$area</h6>";
-    		}
-    		echo "<p class='card-text'>$eventRow[2]</p>";
+	//echo "<div class='card mb-4 shadow-sm'>";
+		//if($image != null){
+			//echo "<img src='$image_src' class='card-img-top'>";
+	   //}
+    // echo "</div>";
 
-  		echo "</div>";
-	echo "</div>";
+    echo "<h2 class='title-pages'>". $eventRow[1] ."</h2>";
+    echo "<div>";
+        echo "<h6>$datetime$place</h6>";
+    echo "</div>";
+    echo "<div>";
+        if($group != null){
+            echo "<h6>$group</h6>";
+        }
+    echo "</div>";
+    echo "<div>";
+        if($area != null){
+            echo "<h6>$area</h6>";
+        }
+    echo "</div>";
+    echo "<div>";
+        echo "<p>$eventRow[2]</p>";
+    echo "</div>";
 
 }
 
