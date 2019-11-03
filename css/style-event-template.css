@@ -1,0 +1,177 @@
+/*/////////////////////////// DEFAULT SETTINGS ///////////////////////////*/
+
+/*//////////// BACKGROUND ////////////*/
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    background-color: white;
+    margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+    width: 100%;
+    padding: 3%;
+    color: #001065;
+}
+
+/*/////////////////////////// STYLING THE WEBSITE ///////////////////////////*/
+
+
+/*/////////////////////////// INDEX PAGE ///////////////////////////*/
+
+/*///////////////// Header /////////////////*/
+
+div.header {
+    height: 100vh;
+    background: rgb(4, 25, 140);
+    background: -moz-linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+    background: -webkit-linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+    background: linear-gradient(159deg, rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 23%, rgba(126, 63, 127, 1) 54%, rgba(233, 84, 114, 1) 79%, rgba(246, 106, 79, 1) 99%);
+    padding: 1% 2%;
+}
+
+nav {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 1.5vw;
+    width: 100%;
+}
+
+div.logos-and-title {
+    padding: 2%;
+    margin-top: 15vh;
+}
+
+div.title-and-platform-info {
+    margin: auto;
+}
+
+h1.birmovanci-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    color: white;
+    font-size: 8vw;
+}
+
+section.platform-info {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    font-size: 2vw;
+}
+
+img.logos {
+    max-width: 100%;
+    height: auto;
+}
+
+.logout-button-style {
+    width: 100%;
+    background-color: #E95570;
+    color: white;
+    font-weight: 500;
+    font-size: 2vw;
+    border-radius: 50px;
+    border-color: #E95570;
+    margin: auto;
+}
+
+.logout-button-style:hover {
+    background-color: #001065;
+    border-color: #001065;
+}
+
+/*///////////////// Body /////////////////*/
+
+main.body-main {
+    padding: 3%;
+    color: #001065;
+}
+
+h2.title-pages {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 3.7vw;
+    background: -webkit-linear-gradient(rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 25%, rgba(126, 63, 127, 1) 50%, rgba(233, 84, 114, 1) 75%, rgba(246, 106, 79, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+div.text-article {
+    width: 75%;
+    margin-left: 1%;
+}
+
+img.image-article {
+    width: 30%;
+    padding-right: 2%;
+}
+
+h3.title-pages {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    background: -webkit-linear-gradient(rgba(4, 25, 140, 1) 0%, rgba(4, 63, 140, 1) 25%, rgba(126, 63, 127, 1) 50%, rgba(233, 84, 114, 1) 75%, rgba(246, 106, 79, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 1%;
+}
+
+div.gallery-div {
+    padding-top: 2%;
+}
+
+/*///////////////// Footer /////////////////*/
+
+a.footer-links {
+    color: #001065;
+}
+
+/*/////////////////////////// Patrik Schwartz's set-ups ///////////////////////////*/
+
+
+.input {
+    width: 100%;
+}
+
+input[type=submit] {
+    text-align: center;
+}
+
+[type=file] {
+    position: absolute;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+#event_img_label {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+/*/////////////////////////// MEDIA QUERIES ///////////////////////////*/
+
+
+/*///////////////// Small devices (landscape phones, less than 768px) /////////////////*/
+
+
+@media (max-width: 768px) {
+
+    img.logos {
+        display: none;
+    }
+
+}
+
+/*///////////////// Extra small devices (portrait phones, less than 576px) /////////////////*/
+
+@media (max-width: 576px) {}
