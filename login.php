@@ -47,7 +47,7 @@ $loginSuccess = $_SESSION["loginSuccess"];
             </div>
         </div>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-7 d-none d-lg-block">
                 <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
             </div>
             <!-- form for login -->

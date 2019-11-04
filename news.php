@@ -81,7 +81,7 @@ $typeRows = $event_types->getEventTypes();
                 <h1 class="birmovanci-title">BIRMOVANCI</h1>
                 <section class="platform-info">Platforma pre vás a o vás. Nájdete tu všetky dôležité informácie o stretkách, kreditoch, akciách a mnoho ďalšieho.</section>
             </div>
-            <div class="col-4">
+            <div class="col-4 d-none d-lg-block">
                 <img class="img-fluid logos" src="pictures/logos.png" alt="Logá farností">
             </div>
         </div>

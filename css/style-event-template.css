@@ -110,6 +110,7 @@ h2.title-pages {
 div.text-article {
     width: 75%;
     margin-left: 1%;
+    font-size: 15pt;
 }
 
 img.image-article {
@@ -165,7 +166,7 @@ input[type=submit] {
 /*///////////////// Small devices (landscape phones, less than 768px) /////////////////*/
 
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
 
     img.logos {
         display: none;

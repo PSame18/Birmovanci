@@ -5,7 +5,8 @@
 body {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 15pt;    background-color: white;
+    font-size: 15pt;
+    background-color: white;
     margin: auto;
 }
 
@@ -180,13 +181,7 @@ input[type=submit] {
 /*///////////////// Small devices (landscape phones, less than 768px) /////////////////*/
 
 
-@media (max-width: 768px) {
-
-    img.logos {
-        display: none;
-    }
-
-}
+@media (max-width: 992px) {}
 
 /*///////////////// Extra small devices (portrait phones, less than 576px) /////////////////*/
 

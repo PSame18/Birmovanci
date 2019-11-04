@@ -103,17 +103,7 @@ input.login-password {
 }
 
 
-/*/////////////////////////// MEDIA QUERIES ///////////////////////////*/
-
-@media all and (max-width: 720px) {
-    img.logos {
-        display: none;
-    }
-}
-
-
-
-
+/*/////////////////////////// Patrik Schwartz's set-ups ///////////////////////////*/
 
 .logout-btn {
     display: block;
@@ -141,3 +131,16 @@ input[type=submit] {
     background-color: white;
     border: 1px solid black;
 }
+
+
+/*/////////////////////////// MEDIA QUERIES ///////////////////////////*/
+
+
+/*///////////////// Small devices (landscape phones, less than 768px) /////////////////*/
+
+
+@media (max-width: 992px) {}
+
+/*///////////////// Extra small devices (portrait phones, less than 576px) /////////////////*/
+
+@media (max-width: 576px) {}
