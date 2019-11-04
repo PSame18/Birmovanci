@@ -195,7 +195,6 @@ input[type=submit] {
     }
 
     div.logos-and-title {
-        display: flex;
         justify-content: center;
         align-content: center;
     }
