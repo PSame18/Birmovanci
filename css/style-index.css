@@ -43,7 +43,7 @@ div.header {
 nav {
     font-family: 'Raleway', sans-serif;
     font-weight: 400;
-    font-size: 150%;
+    font-size: 15pt;
     width: 100%;
 }
 
@@ -181,8 +181,64 @@ input[type=submit] {
 /*///////////////// Small devices (landscape phones, less than 768px) /////////////////*/
 
 
-@media (max-width: 992px) {}
+@media (max-width: 992px) {
+
+    /*///////////////// Header /////////////////*/
+
+    nav {
+        font-size: 3vw;
+    }
+
+    h1.birmovanci-title {
+        font-size: 6em;
+        text-align: center;
+    }
+
+    div.logos-and-title {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    section.platform-info {
+        color: white;
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 400;
+        font-size: 3vw;
+    }
+
+    img.logos {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .logout-button-style {
+        width: 100%;
+        background-color: #E95570;
+        color: white;
+        font-weight: 500;
+        font-size: 2vw;
+        border-radius: 50px;
+        border-color: #E95570;
+        margin: auto;
+    }
+
+    .logout-button-style:hover {
+        background-color: #001065;
+        border-color: #001065;
+    }
+
+}
 
 /*///////////////// Extra small devices (portrait phones, less than 576px) /////////////////*/
 
-@media (max-width: 576px) {}
+@media (max-width: 576px) {
+    /*///////////////// Header /////////////////*/
+
+    div.logos-and-title {
+        margin-top: 50%;
+    }
+}
