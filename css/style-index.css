@@ -181,7 +181,7 @@ input[type=submit] {
 /*///////////////// Small devices (landscape phones, less than 768px) /////////////////*/
 
 
-@media (max-width: 992px) {
+@media (min-width: 576px) and (max-width: 992px) {
 
     /*///////////////// Header /////////////////*/
 
@@ -219,7 +219,7 @@ input[type=submit] {
         background-color: #E95570;
         color: white;
         font-weight: 500;
-        font-size: 2vw;
+        font-size: 3vw;
         border-radius: 50px;
         border-color: #E95570;
         margin: auto;
@@ -237,7 +237,4 @@ input[type=submit] {
 @media (max-width: 576px) {
     /*///////////////// Header /////////////////*/
 
-    div.logos-and-title {
-        margin-top: 50%;
-    }
 }

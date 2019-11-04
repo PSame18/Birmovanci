@@ -75,7 +75,7 @@ $typeRows = $event_types->getEventTypes();
     <!-- main -->
     <main class="container-fluid body-main">
         <h2 class="title-pages">Najnovšie</h2>
-        <div class="row">
+        <div class="row three-news">
 
             <?php
             $id = 1;
