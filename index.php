@@ -80,7 +80,7 @@ $typeRows = $event_types->getEventTypes();
             <?php
             $id = 1;
             foreach ($currentEvents as $currentEvent) {
-                echo "<div class='col-3'>";
+                echo "<div class='col-xl-3 col-lg-12 col-sm-12 col-md-12'>";
                     echo "<div class='card card-border'>";
                         echo "<div class='card-body card-padding'>";
                             echo "<h3 class='card-title'>". $currentEvent[1] ."</h3>";
